@@ -4,4 +4,22 @@
   <artifactId>Music_Streaming</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Music streaming website</name>
+  
+  <parent>
+  		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+		<relativePath/>
+  </parent>
+  
+  <properties>
+		<java.version>1.8</java.version>
+</properties>
+  
+  <dependencies>
+  		<dependency>
+            <groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-web</artifactId>
+  		</dependency>
+  </dependencies>
 </project>
