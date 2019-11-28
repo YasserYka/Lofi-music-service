@@ -1,13 +1,13 @@
-package io.musicStreaming.start.controller;
+package io.musicStreaming.start.controller.Song;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestController {
+public class SongController {
 
-	@RequestMapping("/test")
-	public String test() {
+	@RequestMapping("/song")
+	public String getSongs() {
 		return "Successful!";
 	}
 }
