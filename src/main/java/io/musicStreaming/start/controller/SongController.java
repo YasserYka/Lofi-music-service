@@ -2,6 +2,7 @@ package io.musicStreaming.start.controller;
 
 import io.musicStreaming.start.Repository.SongsRepository;
 import io.musicStreaming.start.Model.Song;
+import io.musicStreaming.start.Exception.SongNotFoundException;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,12 +22,11 @@ public class SongController {
 	
 	@GetMapping
 	public List<Song> getSongs() {
-		return null;
+		return repository.findAll();
 	}
 	
 	@GetMapping("/{id}")
 	public Song getSong(@PathVariable Long id) {
-		//find 
-		return null;
+		return repository.findById(id).orElseThrow(() -> new SongNotFoundException(id));
 	}
 }
