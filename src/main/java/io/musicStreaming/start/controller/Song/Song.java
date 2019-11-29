@@ -1,13 +1,11 @@
 package io.musicStreaming.start.controller.Song;
 
+import javax.persistence.Entity;
 
-
-//@Entity
-//@Table(name = "SONG")
+@Entity
 public class Song {
 
-	//@Id @GeneratedValue
-	//@Column(name ="id")
+	@Id @GeneratedValue
 	private Long id;
 	//@Column(name ="title")
 	private String title;
