@@ -1,22 +1,29 @@
-package io.musicStreaming.start.controller.Song;
+package io.musicStreaming.start.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Song {
 
 	@Id @GeneratedValue
 	private Long id;
-	//@Column(name ="title")
 	private String title;
-	//@Column(name ="artistId")
 	private int artistId;
-	//@Column(name ="albumId")
 	private int albumId;
-	//@Column(name ="url")
 	private String url;
 	
 	public Song() {}
+	
+	public Song(Long id, String title, int artistId, int albumId, String url) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.artistId = artistId;
+		this.albumId = albumId;
+		this.url = url;
+	}
 
 	public Long getId() {
 		return id;
