@@ -1,12 +1,14 @@
 package io.musicStreaming.start.controller.Song;
 
+
+
 //@Entity
 //@Table(name = "SONG")
 public class Song {
 
 	//@Id @GeneratedValue
 	//@Column(name ="id")
-	private int id;
+	private Long id;
 	//@Column(name ="title")
 	private String title;
 	//@Column(name ="artistId")
@@ -18,10 +20,10 @@ public class Song {
 	
 	public Song() {}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTitle() {
