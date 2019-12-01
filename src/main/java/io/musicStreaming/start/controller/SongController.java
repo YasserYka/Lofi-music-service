@@ -37,7 +37,8 @@ public class SongController {
 	@GetMapping("/{id}")
 	public void getSong(HttpServletResponse response, @PathVariable Long id) {
 		Song song = repository.findById(id).orElseThrow(() ->new SongNotFoundException(id));
-		File file = new File(SONGS_PATH + song.getId());
+		//settle on storing 
+		File file = new File(SONGS_PATH + song.getId() +".mp3");
 		_addLengthAndNameToResponse((int) file.length(), song.getTitle(), response);
 		_writeAudioStreamToResponse(file, response);	
 	}
