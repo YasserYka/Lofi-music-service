@@ -1,6 +1,10 @@
 /home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Model/Song.java
 /home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Repository/SongsRepository.java
+/home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Model/Playlist.java
 /home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Controller/SongController.java
 /home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Exception/SongNotFoundException.java
+/home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Controller/UserController.java
+/home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Controller/LoginController.java
 /home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Controller/HomeController.java
+/home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Model/User.java
 /home/yasser/eclipse-workspace/Music_Streaming/src/main/java/io/musicStreaming/start/Application.java

@@ -6,33 +6,39 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Users")
 public class User {
 
 	@Id @GeneratedValue
-	private int ID;
+	private int id;
 	@Column(nullable = false)
 	private String name;
+	@Column(nullable = false)
 	private String userName;
 	@Column(nullable = false)
 	private String plan;
 	@Column(nullable = false)
 	private String imageUrl;
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String password;
 	@Column(nullable = false)
 	private String phoneNumber;
+	@Column(nullable = false)
 	private Date signupDate;
 	@Column(nullable = false)
 	private String sessionToken;
 	
 	public User() {}
 	
-	public User(int iD, String name, String userName, String plan, String imageUrl, String email, String password,
+	public User(int id, String name, String userName, String plan, String imageUrl, String email, String password,
 			String phoneNumber, Date signupDate, String sessionToken) {
 		super();
-		ID = iD;
+		this.id = id;
 		this.name = name;
 		this.userName = userName;
 		this.plan = plan;
@@ -45,10 +51,10 @@ public class User {
 	}
 	
 	public int getID() {
-		return ID;
+		return id;
 	}
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
