@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController{
 
 	@GetMapping
-	public String hello() {
-		return "home";
-	}
+	public String home() {return "home";}
+	
 }
