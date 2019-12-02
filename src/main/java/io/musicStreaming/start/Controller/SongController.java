@@ -1,4 +1,4 @@
-package io.musicStreaming.start.controller;
+package io.musicStreaming.start.Controller;
 
 import io.musicStreaming.start.Repository.SongsRepository;
 import io.musicStreaming.start.Model.Song;
@@ -38,12 +38,12 @@ public class SongController {
 	public void getSong(HttpServletResponse response, @PathVariable Long id) {
 		Song song = repository.findById(id).orElseThrow(() ->new SongNotFoundException(id));
 		//settle on storing 
-		File file = new File(SONGS_PATH + song.getId() +".mp3");
-		_addLengthAndNameToResponse((int) file.length(), song.getTitle(), response);
+		File file = new File(SONGS_PATH + song.getId());
+		_addLengthAndNameAndMimeToResponse((int) file.length(), song.getTitle(), response);
 		_writeAudioStreamToResponse(file, response);	
 	}
 	
-	private void _addLengthAndNameToResponse(int lengthOfFile, String fileName, HttpServletResponse response) {
+	private void _addLengthAndNameAndMimeToResponse(int lengthOfFile, String fileName, HttpServletResponse response) {
 		  response.setContentType("audio/mpeg"); 
 		  response.addHeader("Content-Disposition", "attachment; filename=" + fileName);
 		  response.setContentLength(lengthOfFile);

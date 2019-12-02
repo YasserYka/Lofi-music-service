@@ -1,5 +1,6 @@
 package io.musicStreaming.start.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,9 +10,13 @@ public class Song {
 
 	@Id @GeneratedValue
 	private Long id;
+	@Column(nullable = false)
 	private String title;
+	@Column(nullable = false)
 	private int artistId;
+	@Column(nullable = false)
 	private int albumId;
+	@Column(nullable = false)
 	private String url;
 	
 	public Song() {}
