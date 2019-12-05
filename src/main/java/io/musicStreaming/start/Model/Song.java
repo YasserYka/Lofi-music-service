@@ -11,11 +11,11 @@ public class Song {
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	@Column(nullable = false, name="title")
+	@Column(nullable = false, name="Title")
 	private String title;
-	@Column(nullable = false, name="artist_Id")
+	@Column(nullable = false, name="Artist_Id")
 	private int artistId;
-	@Column(nullable = false, name="album_Id")
+	@Column(nullable = false, name="Album_Id")
 	private int albumId;
 	@Column(nullable = false, name="Url")
 	private String url;

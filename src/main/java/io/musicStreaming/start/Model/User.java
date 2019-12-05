@@ -14,23 +14,23 @@ public class User {
 
 	@Id @GeneratedValue
 	private int id;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Name")
 	private String name;
-	@Column(nullable = false)
+	@Column(nullable = false, name="User_Name")
 	private String userName;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Plan")
 	private String plan;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Image_Url")
 	private String imageUrl;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Email")
 	private String email;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Password")
 	private String password;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Phone_Number")
 	private String phoneNumber;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Signup_Date")
 	private Date signupDate;
-	@Column(nullable = false)
+	@Column(nullable = false, name="Session_Token")
 	private String sessionToken;
 	
 	public User() {}
