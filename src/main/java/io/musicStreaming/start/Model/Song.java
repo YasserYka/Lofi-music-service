@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class Song {
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	@Column(nullable = false, name="Title")
 	private String title;
 	@Column(nullable = false, name="Artist_Id")
@@ -20,10 +20,10 @@ public class Song {
 	@Column(nullable = false, name="Url")
 	private String url;
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTitle() {

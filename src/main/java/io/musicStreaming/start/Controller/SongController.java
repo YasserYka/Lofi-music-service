@@ -13,12 +13,14 @@ import java.util.List;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping("/api/songs")
 public class SongController {
 
@@ -30,17 +32,19 @@ public class SongController {
 	}
 	
 	@GetMapping
+	@ResponseBody
 	public List<Song> getSongs() {
 		return repository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public void getSong(HttpServletResponse response, @PathVariable Long id) {
-		Song song = repository.findById(id).orElseThrow(() ->new SongNotFoundException(id));
+	public String getSong(HttpServletResponse response, @PathVariable Long id) {
+		/*Song song = repository.findById(id).orElseThrow(() ->new SongNotFoundException(id));
 		//settle on storing 
 		File file = new File(SONGS_PATH + song.getId());
 		_addLengthAndNameAndMimeToResponse((int) file.length(), song.getTitle(), response);
-		_writeAudioStreamToResponse(file, response);	
+		_writeAudioStreamToResponse(file, response);	*/
+		return "play";
 	}
 	
 	private void _addLengthAndNameAndMimeToResponse(int lengthOfFile, String fileName, HttpServletResponse response) {
