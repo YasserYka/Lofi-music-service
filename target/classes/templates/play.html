@@ -5,8 +5,9 @@
     <title>Song title goes here!</title>
   </head>
   <body>
+    <h5 th:utext="${title}"></h5>
     <audio controls>
-        <source th:src="@{/songs/Antidepresseur.mp3}"/>
+        <source th:src="@{|/songs/${url}|}"}/>
     </audio>
   </body>
 </html>
