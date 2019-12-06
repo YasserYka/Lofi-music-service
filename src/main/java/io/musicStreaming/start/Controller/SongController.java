@@ -4,25 +4,14 @@ import io.musicStreaming.start.Repository.SongsRepository;
 import io.musicStreaming.start.Model.Song;
 import io.musicStreaming.start.Exception.SongNotFoundException;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("/api/songs")
+@RequestMapping("/songs")
 public class SongController {
 
 	private final SongsRepository repository;
@@ -33,9 +22,9 @@ public class SongController {
 	}
 
 	@GetMapping
-	@ResponseBody
-	public List<Song> getSongs() {
-		return repository.findAll();
+	public String getSongs(Model model) {
+		model.addAttribute("songs", repository.findAll());
+		return "home";
 	}
 
 	@GetMapping("/{id}")

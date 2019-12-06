@@ -5,6 +5,8 @@
     <title></title>
   </head>
   <body>
-    Test 1, 2, 3
+    <ul>
+      <li th:each="song:${songs}" th:utext="${song.getId()+' ' +song.getTitle()}"></li>
+    </ul>
   </body>
 </html>
