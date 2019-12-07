@@ -5,9 +5,11 @@
     <title>Song title goes here!</title>
   </head>
   <body>
-    <h5 th:utext="${title}"></h5>
+    <img th:src="@{|/images/${imageUrl}|}" alt="">
+    <h3 th:utext="${title}"></h3>
+    <h5 th:utext="${artist}"></h5>
     <audio controls>
-        <source th:src="@{|/songs/${url}|}"}/>
+        <source th:src="@{|/songs/${audioUrl}|}" type="audio/mpeg"/>
     </audio>
   </body>
 </html>

@@ -17,9 +17,17 @@ public class Song {
 	private int artistId;
 	@Column(nullable = false, name="Album_Id")
 	private int albumId;
-	@Column(nullable = false, name="Url")
-	private String url;
+	@Column(nullable = false, name="Audio_Url")
+	private String audioUrl;
+	@Column(nullable = false, name="Image_Url")
+	private String imageUrl;
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 	public long getId() {
 		return id;
 	}
@@ -44,10 +52,10 @@ public class Song {
 	public void setAlbumId(int albumId) {
 		this.albumId = albumId;
 	}
-	public String getUrl() {
-		return url;
+	public String getAudioUrl() {
+		return audioUrl;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setAudioUrl(String audioUrl) {
+		this.audioUrl = audioUrl;
 	}
 }

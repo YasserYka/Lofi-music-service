@@ -3,7 +3,8 @@ CREATE TABLE song (
 	title VARCHAR(128) NOT NULL,
 	artist_id INTEGER NOT NULL,
 	album_id INTEGER NOT NULL,
-	url VARCHAR(128) NOT NULL
+	audio_url VARCHAR(128) NOT NULL,
+	image_url VARCHAR(128) NOT NULL
 );
 
 CREATE TABLE users (
