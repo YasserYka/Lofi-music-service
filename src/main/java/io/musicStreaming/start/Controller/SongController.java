@@ -24,7 +24,7 @@ public class SongController {
 		return "home";
 	}
 
-	@GetMapping("song/{id}")
+	@GetMapping("songs/{id}")
 	public String getSong(Model model, @PathVariable Long id) {
 		Song song = repository.findById(id).orElseThrow(() ->new SongNotFoundException(id));
 		model.addAttribute("imageUrl", song.getImageUrl());
