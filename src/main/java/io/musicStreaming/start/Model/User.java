@@ -16,7 +16,7 @@ public class User {
 	private int id;
 	@Column(nullable = false, name="Name")
 	private String name;
-	@Column(nullable = false, name="User_Name")
+	@Column(nullable = false, name="Username")
 	private String userName;
 	@Column(nullable = false, name="Plan")
 	private String plan;

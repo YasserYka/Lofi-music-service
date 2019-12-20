@@ -29,19 +29,7 @@ public class Security extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	public void configure(AuthenticationManagerBuilder authentication) {
-		try {authentication.jdbcAuthentication()
-			.dataSource(dataSource)
-			.withUser(
-				User.withUsername("uesr")
-					.password("password")
-					.roles(Role.user)
-			)
-			.withUser(
-				User.withUsername("admin")
-					.password("admin")
-					.roles(Role.admin)
-			);
-		}
+		try {authentication.jdbcAuthentication().dataSource(dataSource);}
 		catch (Exception e) {/*TODO: log it*/ e.printStackTrace();}
 	}
 
