@@ -10,4 +10,5 @@ io/musicStreaming/start/Controller/SongController.class
 io/musicStreaming/start/Controller/HomeController.class
 io/musicStreaming/start/Application.class
 io/musicStreaming/Configuration/Security.class
+io/musicStreaming/Configuration/Role.class
 io/musicStreaming/Utility/JWT.class
