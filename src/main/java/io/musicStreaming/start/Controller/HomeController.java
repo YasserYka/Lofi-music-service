@@ -11,4 +11,15 @@ public class HomeController{
 	@GetMapping
 	public String home() {return "home";}
 	
+	@GetMapping("/user")
+	@RequestMapping
+	public String user() {
+		return "Welcome user";
+	}
+	
+	@GetMapping("/admin")
+	@RequestMapping
+	public String admin() {
+		return "Welcome admin";
+	}
 }
