@@ -23,13 +23,22 @@ public class Security extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			.antMatchers("/admin").hasRole(Role.admin)
 			.antMatchers("/user").hasAnyRole(Role.admin, Role.user)
-			.antMatchers("/").permitAll()
+			.antMatchers("/**").permitAll()
 			.and().formLogin();
 	}
 	
 	@Override
 	public void configure(AuthenticationManagerBuilder authentication) {
-		try {authentication.jdbcAuthentication().dataSource(dataSource);}
+		try {
+			authentication.jdbcAuthentication()
+			.dataSource(dataSource)
+			.usersByUsernameQuery("select username,password,enabled "
+				+ "from users "
+				+ "where username = ?")
+			.authoritiesByUsernameQuery("select username,authority "
+				+"from authorities "
+				+ "where username = ?");
+		}
 		catch (Exception e) {/*TODO: log it*/ e.printStackTrace();}
 	}
 

@@ -34,4 +34,4 @@ CREATE TABLE playlist (
 	title VARCHAR(128) NOT NULL
 );
 
-CREATE UNIQUE INDEX ix_auth_email on authorities (username,authorities);
+CREATE UNIQUE INDEX ix_auth_username ON authorities (username,authority);
