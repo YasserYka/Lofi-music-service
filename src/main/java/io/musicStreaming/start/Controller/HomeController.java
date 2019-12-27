@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/")
 public class HomeController{
 
-	@GetMapping
-	public String home() {return "home";}
+	@GetMapping("/")
+	public String landingPage() {return "home";}
 	
 	@GetMapping("/user")
 	@ResponseBody
