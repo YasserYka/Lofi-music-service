@@ -1,22 +1,28 @@
 
-
-const audioContexr = new AudioContext();
+const audioContext = new AudioContext();
 
 let audio;
 
-fetch('./songs/Antidepresseur.mp3')
-    .then(data => data.arrayBuffer())
-    .then(buffer => audioContexr.decodeAudioData(buffer))
-    .then(decodeAudio => {
-        audio = decodeAudio;
-    });
-
 function play(){
-    const playSound = audioContexr.createBufferSource();
+    const playSound = audioContext.createBufferSource();
     playSound.buffer = audio;
-    playSound.connect(audioContexr.destination);
-    playSound.start(audioContexr.currentTime);
+    playSound.connect(audioContext.destination);
+    playSound.start(audioContext.currentTime);
 };
 
-window.addEventListener("mousedown", play);
+function fetchAudio(url){
+  fetch(url)
+      .then(data => data.arrayBuffer())
+      .then(buffer => audioContext.decodeAudioData(buffer))
+      .then(decodeAudio => {
+          audio = decodeAudio;
+      }).then(() => {play();});
+};
 
+function suspendAudio(){
+  audioContext.suspend().then(()=>{});
+};
+
+function runAudio(){
+  audioContext.resume().then(()=>{});
+};

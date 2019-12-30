@@ -18,7 +18,7 @@ public class SongController {
 		this.repository = repository;
 	}
 
-	@GetMapping("songs/")
+	@GetMapping("songs")
 	public String getSongs(Model model) {
 		model.addAttribute("songs", repository.findAll());
 		return "home";

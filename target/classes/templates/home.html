@@ -2,12 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>    
+    <title></title>
   </head>
   <body>
-    <ul>
-      <li th:each="song:${songs}" th:utext="${song.getId()+' ' +song.getTitle()}"></li>
-    </ul>
+      <div th:data-url="@{|/songs/${song.audioUrl}|}" onclick="fetchAudio(this.getAttribute('data-url'));" class="songs" th:each="song: ${songs}">
+        <img th:src="@{|/images/${song.imageUrl}|}" alt="">
+        <h5 th:text="${song.title}" />
+        <h5 th:text="${song.artistId}" />
+      </div>
     <script type="text/javascript" src="home.js"></script>
   </body>
 </html>

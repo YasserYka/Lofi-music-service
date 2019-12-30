@@ -18,5 +18,8 @@ function play(){
     playSound.start(audioContexr.currentTime);
 };
 
-window.addEventListener("mousedown", play);
+function fetchAudio(url){
+  console.log("hi");
+};
 
+window.addEventListener("mousedown", play);
