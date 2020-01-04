@@ -1,15 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
+    <div><p>Hi</p></div>
+
       <div th:data-url="@{|/songs/${song.audioUrl}|}" onclick="fetchAudio(this.getAttribute('data-url'));" class="songs" th:each="song: ${songs}">
         <img th:src="@{|/images/${song.imageUrl}|}" alt="">
         <h5 th:text="${song.title}" />
         <h5 th:text="${song.artistId}" />
       </div>
-    <script type="text/javascript" src="home.js"></script>
+    <script type="text/javascript" src="/js/home.js"></script>
   </body>
 </html>

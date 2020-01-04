@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <title>Song title goes here!</title>
-    <link rel="stylesheet" type="text/css" href="play.css" />
   </head>
-  <body>
-    <img th:src="@{|/images/${imageUrl}|}" alt="">
-    <h3 th:utext="${title}"></h3>
-    <h5 th:utext="${artist}"></h5>
+  <body th:style="'background:url('+ @{|/images/${song.imageUrl}|} +');'">
+    <div>
+      <img th:src="@{|/images/${song.imageUrl}|}">
+      <h3 th:utext="${song.title}"></h3>
+      <h5 th:utext="${song.artistId}"></h5>
+    </div>
     <audio controls>
-        <source th:src="@{|/songs/${audioUrl}|}" type="audio/mpeg"/>
+        <source th:src="@{|/songs/${song.audioUrl}|}" type="audio/mpeg"/>
     </audio>
   </body>
 </html>

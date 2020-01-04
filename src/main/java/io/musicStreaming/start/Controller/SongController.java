@@ -26,10 +26,7 @@ public class SongController {
 
 	@GetMapping("song/{id}")
 	public String getSong(Model model, @PathVariable Long id) {
-		Song song = repository.findById(id).orElseThrow(() ->new SongNotFoundException(id));
-		model.addAttribute("imageUrl", song.getImageUrl());
-		model.addAttribute("title", song.getTitle());
-		model.addAttribute("audioUrl", song.getAudioUrl());
+		model.addAttribute("song", repository.findById(id).orElseThrow(() ->new SongNotFoundException(id)));
 		return "play";
 	}
 }
