@@ -9,36 +9,35 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
 
-	@Id @GeneratedValue
-	private int id;
-	@Column(nullable = false, name="Name")
-	private String name;
+	@Id
 	@Column(nullable = false, name="Username")
 	private String userName;
-	@Column(nullable = false, name="Plan")
+	@Column(nullable = true, name="Name")
+	private String name;
+	@Column(nullable = true, name="Plan")
 	private String plan;
-	@Column(nullable = false, name="Image_Url")
+	@Column(nullable = true, name="Image_Url")
 	private String imageUrl;
-	@Column(nullable = false, name="Email")
+	@Column(nullable = true, name="Email")
 	private String email;
 	@Column(nullable = false, name="Password")
 	private String password;
-	@Column(nullable = false, name="Phone_Number")
+	@Column(nullable = true, name="Phone_Number")
 	private String phoneNumber;
-	@Column(nullable = false, name="Signup_Date")
-	private Date signupDate;
-	@Column(nullable = false, name="Session_Token")
-	private String sessionToken;
+	@Column(nullable = true, name="Signup_Date")
+	private String signupDate;
+	@Column(nullable = false, name="Enabled")
+	private boolean enabled;
+	
 	
 	public User() {}
 	
 	public User(int id, String name, String userName, String plan, String imageUrl, String email, String password,
-			String phoneNumber, Date signupDate, String sessionToken) {
+			String phoneNumber, String signupDate, String sessionToken) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.userName = userName;
 		this.plan = plan;
@@ -47,14 +46,6 @@ public class User {
 		this.password = password;
 		this.phoneNumber = phoneNumber;
 		this.signupDate = signupDate;
-		this.sessionToken = sessionToken;
-	}
-	
-	public int getID() {
-		return id;
-	}
-	public void setID(int id) {
-		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -98,17 +89,12 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public Date getSignupDate() {
+	public String getSignupDate() {
 		return signupDate;
 	}
-	public void setSignupDate(Date signupDate) {
+	public void setSignupDate(String signupDate) {
 		this.signupDate = signupDate;
 	}
-	public String getSessionToken() {
-		return sessionToken;
-	}
-	public void setSessionToken(String sessionToken) {
-		this.sessionToken = sessionToken;
-	}
+
 	
 }

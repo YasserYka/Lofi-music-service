@@ -13,33 +13,27 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-public class Security extends WebSecurityConfigurerAdapter{
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
-	private DataSource dataSource;
+	DataSource dataSource;
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder authentication) {
+		try {
+			authentication.jdbcAuthentication()
+			.dataSource(dataSource);
+		}
+		catch (Exception e) {/*TODO: log it*/ e.printStackTrace();}
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/admin").hasRole(Role.admin)
 			.antMatchers("/user").hasAnyRole(Role.admin, Role.user)
-			.antMatchers("/**").permitAll()
+			.antMatchers("/").permitAll()
 			.and().formLogin();
-	}
-	
-	@Override
-	public void configure(AuthenticationManagerBuilder authentication) {
-		try {
-			authentication.jdbcAuthentication()
-			.dataSource(dataSource)
-			.usersByUsernameQuery("select username,password,enabled "
-				+ "from users "
-				+ "where username = ?")
-			.authoritiesByUsernameQuery("select username,authority "
-				+"from authorities "
-				+ "where username = ?");
-		}
-		catch (Exception e) {/*TODO: log it*/ e.printStackTrace();}
 	}
 
 	@Bean
