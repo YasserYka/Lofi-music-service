@@ -2,14 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Make da music laoder</title>
   </head>
   <body>
-      <div th:each="song: ${songs}">
-        <img class="image" th:src="@{|/images/${song.imageUrl}|}" alt="" th:data-url="@{|/songs/${song.audioUrl}|}" />
-        <h5 th:text="${song.title}"></h5>
-        <h5 th:text="${song.artistId}"></h5>
+      <div class="music-container" th:each="song: ${songs}">
+          <img class="image" th:src="@{|/images/${song.imageUrl}|}" alt="" th:data-url="@{|/songs/${song.audioUrl}|}" />
+          <h6 class="title" th:text="${song.title}"></h6>
+          <h6 class="artistId" th:text="${song.artistId}"></h6>
       </div>
+      <audio id='audio'></audio>
     <script type="text/javascript" src="/js/home.js"></script>
   </body>
 </html>
