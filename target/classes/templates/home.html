@@ -1,17 +1,21 @@
 <!DOCTYPE html >
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/home.css">
     <title>Make da music laoder</title>
   </head>
   <body>
+    <div class="navigation-container">
+      <a th:href="@{/Login}">Login</a>
+      <a th:href="@{/Signup}">Signup</a>
+      <a th:href="@{/About}">About</a>
+    </div>
       <div class="music-container" th:each="song: ${songs}">
           <img class="image" th:src="@{|/images/${song.imageUrl}|}" alt="" th:data-url="@{|/songs/${song.audioUrl}|}" />
           <h6 class="title" th:text="${song.title}"></h6>
           <h6 class="artistId" th:text="${song.artistId}"></h6>
       </div>
-      <audio id='audio'></audio>
     <script type="text/javascript" src="/js/home.js"></script>
   </body>
 </html>
