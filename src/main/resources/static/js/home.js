@@ -1,6 +1,6 @@
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioContext = new AudioContext();
-let audio;
+let audio, audioTag;
 
 let imageClass = document.getElementsByClassName('image');
 
@@ -11,28 +11,24 @@ for(let i = 0; i < imageClass.length; i++){
 function play(url){
     const bufferSource = audioContext.createBufferSource();
     bufferSource.buffer = audio;
-    //bufferSource.connect(audioContext.destination);
     bufferSource.start();
     streamDestination = audioContext.createMediaStreamDestination();
     bufferSource.connect(streamDestination);
-    createAndAppendAudioTag(streamDestination);
-    /*x.src = url;
-    x.controls = true;
-    x.autoplay = true;
-    document.body.appendChild(x);
-    var analyser = audioContext.createAnalyser();
-    let source = audioContext.createMediaElementSource(x);
-    source.connect(analyser);
-    analyser.connect(audioContext.destination);*/
-};
+    if(typeof audioTag === 'undefined')
+      createAndAppendAudioTag(streamDestination);
+    else
+      changeSrcObject(streamDestination);
+}
 
 function createAndAppendAudioTag(streamDestination){
-  let audioTag = new Audio();
+  audioTag = new Audio();
   audioTag.controls = true;
   audioTag.autoplay = true;
   document.body.appendChild(audioTag);
   audioTag.srcObject = streamDestination.stream;
 }
+
+function changeSrcObject(streamDestination){audioTag.srcObject = streamDestination.stream;}
 
 function fetchAudio(url){
   fetch(url)
@@ -41,12 +37,5 @@ function fetchAudio(url){
       .then(decodeAudio => {
           audio = decodeAudio;
       }).then(() => {play(url);});
-};
+}
 
-function suspendAudio(){
-  audioContext.suspend().then(()=>{});
-};
-
-function runAudio(){
-  audioContext.resume().then(()=>{});
-};
