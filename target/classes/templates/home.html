@@ -5,10 +5,10 @@
     <title></title>
   </head>
   <body>
-      <div th:data-url="@{|/songs/${song.audioUrl}|}" onclick="fetchAudio(this.getAttribute('data-url'));" class="songs" th:each="song: ${songs}">
-        <img th:src="@{|/images/${song.imageUrl}|}" alt="">
-        <h5 th:text="${song.title}" />
-        <h5 th:text="${song.artistId}" />
+      <div th:each="song: ${songs}">
+        <img class="image" th:src="@{|/images/${song.imageUrl}|}" alt="" th:data-url="@{|/songs/${song.audioUrl}|}" />
+        <h5 th:text="${song.title}"></h5>
+        <h5 th:text="${song.artistId}"></h5>
       </div>
     <script type="text/javascript" src="/js/home.js"></script>
   </body>

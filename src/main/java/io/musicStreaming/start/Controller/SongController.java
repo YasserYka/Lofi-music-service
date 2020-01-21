@@ -18,13 +18,13 @@ public class SongController {
 		this.repository = repository;
 	}
 
-	@GetMapping("songs")
+	@GetMapping("/songs")
 	public String getSongs(Model model) {
 		model.addAttribute("songs", repository.findAll());
 		return "home";
 	}
 
-	@GetMapping("song/{id}")
+	@GetMapping("/song/{id}")
 	public String getSong(Model model, @PathVariable Long id) {
 		model.addAttribute("song", repository.findById(id).orElseThrow(() ->new SongNotFoundException(id)));
 		return "play";

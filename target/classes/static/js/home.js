@@ -3,6 +3,12 @@ const audioContext = new AudioContext();
 
 let audio;
 
+let imageClass = document.getElementsByClassName('image');
+
+for(let i = 0; i < imageClass.length; i++){
+  imageClass[i].onclick = () => {fetchAudio(imageClass[i].dataset.url);};
+}
+
 function play(){
     const playSound = audioContext.createBufferSource();
     playSound.buffer = audio;

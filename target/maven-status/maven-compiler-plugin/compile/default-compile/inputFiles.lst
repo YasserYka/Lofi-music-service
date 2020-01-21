@@ -1,10 +1,12 @@
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Controller/HomeController.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Model/User.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Repository/SongsRepository.java
+/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/Configuration/userDetails.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Model/Playlist.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Controller/SongController.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/Configuration/UsersDetailsService.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Model/Song.java
+/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/Configuration/userDetailsService.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Application.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Exception/SongNotFoundException.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/Utility/JWT.java
