@@ -8,7 +8,7 @@ for(let i = 0; i < imageClass.length; i++){
   imageClass[i].onclick = () => {fetchAudio(imageClass[i].dataset.url);};
 }
 
-function play(url){
+function play(){
     const bufferSource = audioContext.createBufferSource();
     bufferSource.buffer = audio;
     bufferSource.start();
