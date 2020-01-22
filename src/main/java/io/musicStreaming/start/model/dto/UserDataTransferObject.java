@@ -3,6 +3,10 @@ package io.musicStreaming.start.model.dto;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import io.musicStreaming.start.validation.valid.ValidEmail;
+import io.musicStreaming.start.validation.valid.PasswordMatches;
+
+@PasswordMatches
 public class UserDataTransferObject{
 
     @NotNull
@@ -17,6 +21,7 @@ public class UserDataTransferObject{
     @NotNull
     @NotEmpty
     private String matchingPassword;
+	@ValidEmail
     @NotNull
     @NotEmpty
     private String email;

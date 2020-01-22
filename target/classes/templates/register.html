@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>You won't regret it</title>
+</head>
+<body>
+    <form action="/" th:object="${user}" method="post" enctype="utf8">
+        <div>
+            <label th:text="#{label.user.name}">Name</label>
+            <input th:field="*{name}"/>
+            <p th:each="error: ${#fields.errors('firstName')}" th:text="${error}">Validation Error</p>
+        </div>
+        <div>
+            <label th:text="#{label.user.userName">Username</label>
+            <input th:field="*{Username}"/>
+            <p th:each="error: ${#fields.errors('username')}" th:text="${error}">Validation Error</p>
+        </div>
+        <div>
+            <label th:text="#{label.user.email">Email</label>
+            <input type= "email" th:field="*{Email}"/>
+            <p th:each="error: ${#fields.errors('email')}" th:text="${error}">Validation Error</p>
+        </div>
+        <div>
+            <label th:text="#{label.user.password">Password</label>
+            <input type="password" th:field="*{Password}"/>
+            <p th:each="error: ${#fields.errors('password')}" th:text="${error}">Validation Error</p>
+        </div>
+        <div>
+            <label th:text="#{label.user.matchingPassword">Rewrite Password</label>
+            <input th:field="*{matchingPassword}"/>
+            <p th:each="error: ${#fields.errors('password')}" th:text="${error}">Validation Error</p>
+        </div>
+        <div>
+            <button type="submit" th:text="#{label.form.submit}">submit</button>
+        </div>
+    </form>
+    <a th:href="@{/login.html}" th:text="#{label.form.login}">Already have an account?</a>
+</body>
+</html>

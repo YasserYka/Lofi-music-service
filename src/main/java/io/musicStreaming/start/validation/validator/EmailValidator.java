@@ -1,10 +1,12 @@
-package org.baeldung.validation;
+package io.musicStreaming.start.validation.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+
+import io.musicStreaming.start.validation.valid.ValidEmail;
 
 public class EmailValidator implements ConstraintValidator<ValidEmail, String> {
     private Pattern pattern;
@@ -13,14 +15,14 @@ public class EmailValidator implements ConstraintValidator<ValidEmail, String> {
     private final String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
     @Override
-    public void initlize(final ValidEmail annotation){}
+    public void initialize(final ValidEmail annotation){}
 
     @Override
-    public boolean isValid(final String userName, final ConstraintValidatorContext context){return (ValidEmail(userName));}
+    public boolean isValid(final String userName, final ConstraintValidatorContext context){return (validateEmail(userName));}
 
-    private boolean validEmail(final String email){
+    private boolean validateEmail(final String email){
         pattern = Pattern.compile(emailPattern);
-        matcher = Pattern.matcher(email);
+        matcher = pattern.matcher(email);
         return matcher.matches();
     }
 }
