@@ -13,10 +13,8 @@ public class Song {
 	private long id;
 	@Column(nullable = false, name="Title")
 	private String title;
-	@Column(nullable = false, name="Artist_Id")
-	private int artistId;
-	@Column(nullable = false, name="Album_Id")
-	private int albumId;
+	@Column(nullable = false, name="Arstist_Name")
+	private int artistName;
 	@Column(nullable = false, name="Audio_Url")
 	private String audioUrl;
 	@Column(nullable = false, name="Image_Url")
@@ -40,17 +38,11 @@ public class Song {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getArtistId() {
-		return artistId;
+	public int getArtistName() {
+		return artistName;
 	}
-	public void setArtistId(int artistId) {
-		this.artistId = artistId;
-	}
-	public int getAlbumId() {
-		return albumId;
-	}
-	public void setAlbumId(int albumId) {
-		this.albumId = albumId;
+	public void setArtistName(int artistName) {
+		this.artistName = artistName;
 	}
 	public String getAudioUrl() {
 		return audioUrl;

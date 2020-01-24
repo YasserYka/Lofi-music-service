@@ -14,7 +14,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-	
+
+    @Override
+    protected void configure(HttpSecurity security) throws Exception
+    {
+     security.httpBasic().disable();
+     security.cors().and().csrf().disable();
+    }
+	/*	
 	@Autowired
 	DataSource dataSource;
 	
@@ -30,9 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/admin").hasRole(Role.admin)
 			.antMatchers("/user").hasAnyRole(Role.admin, Role.user)
 			.antMatchers("/").permitAll()
+			.antMatchers("/error").permitAll()
 			.and().formLogin();
 	}
 
 	@Bean
-	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();}
+	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();}*/
 }
