@@ -13,8 +13,8 @@ public class Song {
 	private long id;
 	@Column(nullable = false, name="Title")
 	private String title;
-	@Column(nullable = false, name="Arstist_Name")
-	private int artistName;
+	@Column(nullable = false, name="Artist_Name")
+	private String artistName;
 	@Column(nullable = false, name="Audio_Url")
 	private String audioUrl;
 	@Column(nullable = false, name="Image_Url")
@@ -38,10 +38,10 @@ public class Song {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getArtistName() {
+	public String getArtistName() {
 		return artistName;
 	}
-	public void setArtistName(int artistName) {
+	public void setArtistName(String artistName) {
 		this.artistName = artistName;
 	}
 	public String getAudioUrl() {

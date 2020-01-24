@@ -13,17 +13,9 @@ CREATE TABLE users(
 CREATE TABLE song (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
 	title VARCHAR(128) NOT NULL,
-	artist_id INTEGER NOT NULL,
-	album_id INTEGER NOT NULL,
+	artist_name VARCHAR(128) NOT NULL,
 	audio_url VARCHAR(128) NOT NULL,
 	image_url VARCHAR(128) NOT NULL
-);
-
-CREATE TABLE playlist (
-	id INTEGER NOT NULL AUTO_INCREMENT,
-	PRIMARY KEY (id),
-	user_id INTEGER NOT NULL,
-	title VARCHAR(128) NOT NULL
 );
 
 create table authorities (
