@@ -7,9 +7,10 @@
   </head>
   <body>
     <div class="navigation-container">
-      <a th:href="@{/Login}">Login</a>
-      <a th:href="@{/Signup}">Signup</a>
-      <a th:href="@{/About}">About</a>
+      <a th:href="@{/login}">Login</a>
+      <a th:href="@{/signup}">Signup</a>
+      <a th:href="@{/upload}">Upload</a>
+      <a th:href="@{/about}">About</a>
     </div>
       <div class="music-container" th:each="song: ${songs}">
           <img class="image" th:src="@{|/images/${song.imageUrl}|}" alt="" th:data-url="@{|/songs/${song.audioUrl}|}" />
