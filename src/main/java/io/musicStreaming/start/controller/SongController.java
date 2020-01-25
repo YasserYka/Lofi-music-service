@@ -32,6 +32,7 @@ public class SongController {
 		model.addAttribute("songs", songs.getContent());		
 		model.addAttribute("totalPages", songs.getTotalPages() - 1);
 		model.addAttribute("size", songs.getSize());
+		model.addAttribute("number", songs.getNumber());
 		
 		return "home";
 	}

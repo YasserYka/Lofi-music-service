@@ -1,19 +1,23 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+    background-color: #1b262c;
 }
 .music-container{
     width: 95%;
     height: 12em;
-    background-color: turquoise;
+    background-color: rgb(34, 56, 73);
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     margin: 1em;
 }
+.music-container .info{
+    color: #f2f2f2;
+}
 .navigation-container{
     overflow: hidden;
-    background-color: cadetblue;
+    background-color: rgb(34, 56, 73);
     top: 0;
     width: 100%;
     position: sticky;
@@ -32,10 +36,26 @@ body{
     margin: 1em;
 }
 .navigation-container a#active{
-       background-color: black;
-       color: coral;
+    background-color: black;
+    color: coral;
 }
 .navigation-container a:hover{
-    background-color: black;
-    color: red;
+    background-color: rgb(34, 56, 73);
+    color: #f2f2f2;
+}
+.pagination a {
+    color: #f2f2f2;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.pagination{
+    display: inline-block;
+}
+.pagination a.active {
+  background-color: rgb(34, 56, 73);
+  color: #f2f2f2;
+}
+.center {
+    text-align: center;
 }
