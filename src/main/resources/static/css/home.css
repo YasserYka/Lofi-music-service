@@ -59,3 +59,8 @@ body{
 .center {
     text-align: center;
 }
+#audioPLayer{
+    width: 100%;
+    position: fixed;
+    bottom: 5px;
+}

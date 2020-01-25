@@ -24,6 +24,7 @@ function createAndAppendAudioTag(streamDestination){
   audioTag = new Audio();
   audioTag.controls = true;
   audioTag.autoplay = true;
+  audioTag.id = 'audioPLayer';
   document.body.appendChild(audioTag);
   audioTag.srcObject = streamDestination.stream;
 }

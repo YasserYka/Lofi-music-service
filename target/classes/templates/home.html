@@ -19,6 +19,7 @@
           <h6 class="info" th:text="${song.title}"></h6><br>
           <h6 class="info" th:text="${song.artistName}"></h6>
       </div>
+      
       <div class="center">
         <div th:if="${totalPages > 0}" class="pagination" th:each="counter : ${#numbers.sequence(0, totalPages)}">
             <a th:href="@{/songs(size=${size}, page=${counter})}" th:text=${counter+1} th:class="${counter == number}?active"></a>
