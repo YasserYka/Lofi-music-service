@@ -12,11 +12,18 @@
       <a th:href="@{/upload}">Upload</a>
       <a th:href="@{/about}">About</a>
     </div>
+
       <div class="music-container" th:each="song: ${songs}">
-          <img class="image" th:src="@{song.imageUrl}" alt="" th:data-url="@{song.audioUrl}" />
-          <h6 class="title" th:text="${song.title}"></h6>
+          <img class="image" th:src="${song.imageUrl}" alt="" th:data-url="${song.audioUrl}" />
+          <h6 class="title" th:text="${song.title}"></h6><br>
           <h6 class="artistName" th:text="${song.artistName}"></h6>
       </div>
+
+      <div th:if="${totalPages > 0}" class="pagination" th:each="counter : ${#numbers.sequence(0, totalPages)}">
+          <a th:href="@{/songs(size=${size}, page=${counter})}" th:text=${counter}></a>
+      </div>
+
+
     <script type="text/javascript" src="/js/home.js"></script>
   </body>
 </html>

@@ -4,6 +4,7 @@ import io.musicStreaming.start.exception.SongNotFoundException;
 import io.musicStreaming.start.model.Song;
 import io.musicStreaming.start.repository.SongsRepository;
 import io.musicStreaming.start.service.FileService;
+import io.musicStreaming.start.service.SongService;
 
 import java.io.IOException;
 import java.lang.ProcessBuilder.Redirect;
@@ -13,6 +14,10 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -26,35 +31,37 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class SongController {
 
-	private final SongsRepository repository;
-
+	@Autowired
+	private SongService songService;
+	
 	@Autowired
 	FileService fileService;
-	
-	public SongController(SongsRepository repository) {
-		this.repository = repository;
-	}
+
 
 	@GetMapping("/songs")
-	public String getSongs(Model model) {
-		List<Song> listOfSongs = repository.findAll();
-		if(listOfSongs != null)
-			model.addAttribute("songs", repository.findAll());
+	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "2") int size) {
+		Page<Song> songs = songService.songsList(size, page);
+		
+		model.addAttribute("songs", songs.getContent());		
+		model.addAttribute("totalPages", songs.getTotalPages() - 1);
+		model.addAttribute("size", songs.getSize());
+		
 		return "home";
 	}
 
-	@GetMapping("/song/{id}")
+
+	/*@GetMapping("/song/{id}")
 	public String getSong(Model model, @PathVariable Long id) {
 		model.addAttribute("song", repository.findById(id).orElseThrow(() ->new SongNotFoundException(id)));
 		return "play";
-	}
+	}*/
 	
 	@GetMapping("/upload")
 	public String upload(){
 		return "upload";
 	}
 
-	@PostMapping("/upload")
+	/*@PostMapping("/upload")
 	public String handleUpload(@RequestParam("audio") MultipartFile audio, @RequestParam("image") MultipartFile image, RedirectAttributes redirect, @RequestParam String title, @RequestParam String artistName) {
 		if(audio.isEmpty() || image.isEmpty())
 			redirect.addFlashAttribute("message", "Please make sure to upload both audio and image");
@@ -65,7 +72,7 @@ public class SongController {
 		song.setTitle(title);
 		song.setArtistName(artistName);
 		song.setImageUrl("/images/"+ image.getOriginalFilename());
-		song.setAudioUrl("/audio/"+ audio.getOriginalFilename());
+		song.setAudioUrl("/songs/"+ audio.getOriginalFilename());
 		
 		repository.save(song);
 		
@@ -74,7 +81,7 @@ public class SongController {
 		
 		return "redirect:/uploadStatus";
 	}
-
+*/
 	
 	@GetMapping("/uploadStatus")
 	public String uploadStatus() {return "uploadStatus";}

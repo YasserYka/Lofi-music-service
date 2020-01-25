@@ -2,6 +2,7 @@
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/configuration/userDetails.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/model/Song.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/validation/valid/PasswordMatches.java
+/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/service/SongService.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/exception/SongNotFoundException.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/model/Playlist.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/configuration/SecurityConfig.java
