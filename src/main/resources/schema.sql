@@ -7,7 +7,8 @@ CREATE TABLE users(
     password varchar_ignorecase(50) not null,
 	phone_number VARCHAR(128),
 	signup_date VARCHAR(128),
-    enabled boolean not null
+    enabled boolean not null,
+    roles VARCHAR(128) not null
 );
 
 CREATE TABLE song (

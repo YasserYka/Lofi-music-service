@@ -4,3 +4,5 @@ INSERT INTO song (title, artist_name, audio_url, image_url)
 	VALUES ('Shikutomoto', 'Random Artist2', '/songs/Shikutomoto.mp3', '/images/53457.jpg');
 INSERT INTO song (title, artist_name, audio_url, image_url) 
 	VALUES ('Ransom', 'Random Artist3', '/songs/Ransom.mp3', '/images/275-1519562457.jpg');
+INSERT INTO users (username, password, enabled, roles)
+	VALUES ('user', 'pass', true, 'ROLE_USER');

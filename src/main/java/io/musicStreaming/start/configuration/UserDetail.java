@@ -38,6 +38,7 @@ public class UserDetail implements UserDetails{
 		this.password = user.getPassword();
 		this.phoneNumber = user.getPhoneNumber();
 		this.signupDate = user.getSignupDate();
+		this.enabled = user.isEnabled();
 		this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 	}
 
