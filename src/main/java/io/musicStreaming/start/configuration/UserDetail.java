@@ -7,13 +7,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class userDetails implements UserDetails{
+public class UserDetail implements UserDetails{
 
 	private String username;
 
-	public userDetails() {}
+	public UserDetail() {}
 	
-	public userDetails(String username) {
+	public UserDetail(String username) {
 		this.username = username;
 	}
 	@Override

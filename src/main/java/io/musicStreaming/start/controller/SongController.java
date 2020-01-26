@@ -26,7 +26,7 @@ public class SongController {
 
 
 	@GetMapping("/songs")
-	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
+	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
 		Page<Song> songs = songService.songsList(size, page);
 		
 		model.addAttribute("songs", songs.getContent());		

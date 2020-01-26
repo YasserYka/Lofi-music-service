@@ -1,5 +1,3 @@
-/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/configuration/userDetailsService.java
-/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/configuration/userDetails.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/model/Song.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/validation/valid/PasswordMatches.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/service/SongService.java
@@ -10,11 +8,12 @@
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/service/FileService.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/controller/UserController.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/model/User.java
+/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/configuration/UserDetail.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/repository/SongsRepository.java
+/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/service/UserService.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/controller/HomeController.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/validation/valid/ValidEmail.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Application.java
-/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/configuration/UsersDetailsService.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/validation/validator/PasswordMatchesValidator.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/utility/JWT.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/controller/LoginController.java

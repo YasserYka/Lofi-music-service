@@ -1,17 +1,16 @@
-package io.musicStreaming.start.configuration;
+package io.musicStreaming.start.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import io.musicStreaming.start.configuration.UserDetail;
+
 @Service
-public class userDetailsService implements UserDetailsService{
+public class UserService implements UserDetailsService{
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return new userDetails(username);
-	}
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {return new UserDetail(username);}
 
 }

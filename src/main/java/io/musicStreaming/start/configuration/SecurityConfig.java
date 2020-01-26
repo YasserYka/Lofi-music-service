@@ -15,6 +15,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
+	@Autowired
+	UserDetailsService userDetails;
+	/*
     @Override
     protected void configure(HttpSecurity security) throws Exception
     {
@@ -23,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
      
      security.headers().frameOptions().disable();
     }
-	/*	
+    */
 	@Autowired
 	DataSource dataSource;
 	
@@ -31,7 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	UserDetailsService userDetailsService;
 	
 	@Override
-	protected void configure(AuthenticationManagerBuilder authentication) throws Exception {authentication.userDetailsService(userDetailsService);}
+	protected void configure(AuthenticationManagerBuilder authentication) throws Exception {
+		authentication.userDetailsService(userDetailsService);
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -44,5 +49,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 
 	@Bean
-	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();}*/
+	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();}
 }

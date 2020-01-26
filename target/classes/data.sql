@@ -1,7 +1,3 @@
-INSERT INTO users (username, password, enabled)
-	VALUES ('user', 'pass', true);
-INSERT INTO authorities (username, authority)
-  VALUES ('user', 'ROLE_USER');
 INSERT INTO song (title, artist_name, audio_url, image_url) 
 	VALUES ('Antidepresseur', 'Random Artist', '/songs/Antidepresseur.mp3', '/images/2c37f2dbc64b.jpeg');
 INSERT INTO song (title, artist_name, audio_url, image_url) 

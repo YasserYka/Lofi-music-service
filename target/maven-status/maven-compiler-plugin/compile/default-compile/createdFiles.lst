@@ -3,12 +3,10 @@ io/musicStreaming/start/configuration/Role.class
 io/musicStreaming/start/exception/SongNotFoundException.class
 io/musicStreaming/start/controller/LoginController.class
 io/musicStreaming/start/validation/validator/PasswordMatchesValidator.class
-io/musicStreaming/start/configuration/userDetails.class
 io/musicStreaming/start/model/Song.class
 io/musicStreaming/start/model/dto/UserDataTransferObject.class
 io/musicStreaming/start/Application.class
 io/musicStreaming/start/validation/valid/PasswordMatches.class
-io/musicStreaming/start/configuration/userDetailsService.class
 io/musicStreaming/start/utility/JWT.class
 io/musicStreaming/start/repository/SongsRepository.class
 io/musicStreaming/start/controller/HomeController.class
@@ -16,6 +14,5 @@ io/musicStreaming/start/model/Playlist.class
 io/musicStreaming/start/controller/UserController.class
 io/musicStreaming/start/configuration/SecurityConfig.class
 io/musicStreaming/start/validation/validator/EmailValidator.class
-io/musicStreaming/start/configuration/UsersDetailsService.class
 io/musicStreaming/start/model/User.class
 io/musicStreaming/start/controller/SongController.class

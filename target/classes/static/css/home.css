@@ -11,6 +11,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     margin: 1em;
+    border-radius: 15px 15px 15px 15px;
 }
 .music-container .info{
     color: #f2f2f2;
