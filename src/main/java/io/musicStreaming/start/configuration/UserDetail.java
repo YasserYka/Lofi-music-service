@@ -2,53 +2,77 @@ package io.musicStreaming.start.configuration;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import javax.persistence.Column;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import io.musicStreaming.start.model.User;
+
 public class UserDetail implements UserDetails{
 
-	private String username;
-
+	private String userName;
+	private String name;
+	private String plan;
+	private String imageUrl;
+	private String email;
+	private String password;
+	private String phoneNumber;
+	private String signupDate;
+	private boolean enabled;
+	private List<GrantedAuthority> authorities;
+	
 	public UserDetail() {}
 	
-	public UserDetail(String username) {
-		this.username = username;
+	public UserDetail(User user) {
+		this.userName = user.getUserName();
+		this.name = user.getName();
+		this.plan = user.getPlan();
+		this.imageUrl = user.getImageUrl();
+		this.email = user.getEmail();
+		this.password = user.getPassword();
+		this.phoneNumber = user.getPhoneNumber();
+		this.signupDate = user.getSignupDate();
+		this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 	}
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+		return authorities;
 	}
 
 	@Override
-	public String getPassword() {return "password";}
+	public String getPassword() {
+		return password;
+	}
 
 	@Override
-	public String getUsername() {return username;}
+	public String getUsername() {
+		return userName;
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
+		return enabled;
 	}
-
 }

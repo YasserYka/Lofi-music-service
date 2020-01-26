@@ -28,6 +28,8 @@ public class User {
 	private String signupDate;
 	@Column(nullable = false, name="Enabled")
 	private boolean enabled;
+	@Column(nullable = false, name="Roles")
+	private String Roles;
 	
 	
 	public User() {}
@@ -92,6 +94,16 @@ public class User {
 	public void setSignupDate(String signupDate) {
 		this.signupDate = signupDate;
 	}
-
-	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	public String getRoles() {
+		return Roles;
+	}
+	public void setRoles(String roles) {
+		Roles = roles;
+	}
 }
