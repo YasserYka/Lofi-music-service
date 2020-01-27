@@ -11,12 +11,17 @@ import org.springframework.web.context.request.WebRequest;
 @RequestMapping("/user")
 public class UserController {
 	
-	@GetMapping("/info")
-	public void userinfo() {}
+	@GetMapping("/profile")
+	public void profile() {}
 	
 	@GetMapping("/register")
-	public String RegistrationForm(WebRequest request, Model model) {
+	public String registrationForm(WebRequest request, Model model) {
 		model.addAttribute("userDto", new UserDataTransferObject());
 		return "register";
+	}
+	
+	@GetMapping("/login")
+	public String loginForm() {
+		return "login";
 	}
 }

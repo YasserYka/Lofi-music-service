@@ -25,7 +25,7 @@ public class SongController {
 	FileService fileService;
 
 
-	@GetMapping("/songs")
+	@GetMapping("/")
 	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
 		Page<Song> songs = songService.songsList(size, page);
 		

@@ -14,19 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-
-	@Autowired
-	UserDetailsService userDetails;
-	/*
-    @Override
-    protected void configure(HttpSecurity security) throws Exception
-    {
-     security.httpBasic().disable();
-     security.cors().and().csrf().disable();
-     
-     security.headers().frameOptions().disable();
-    }
-    */
+	
 	@Autowired
 	DataSource dataSource;
 	
@@ -50,4 +38,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();}
+	
+	//This code used for testing
+	/*
+    @Override
+    protected void configure(HttpSecurity security) throws Exception
+    {
+     security.httpBasic().disable();
+     security.cors().and().csrf().disable();
+     
+     security.headers().frameOptions().disable();
+    }
+    */
 }
