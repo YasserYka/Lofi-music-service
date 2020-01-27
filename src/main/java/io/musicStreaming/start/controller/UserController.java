@@ -1,8 +1,21 @@
 package io.musicStreaming.start.controller;
 
+import io.musicStreaming.start.model.dto.AuthenticationRequest;
+import io.musicStreaming.start.model.dto.AuthenticationResponse;
 import io.musicStreaming.start.model.dto.UserDataTransferObject;
+import io.musicStreaming.start.service.UserService;
+import io.musicStreaming.start.utility.JWT;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
@@ -10,6 +23,15 @@ import org.springframework.web.context.request.WebRequest;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+	
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private JWT jwtUtil;
 	
 	@GetMapping("/profile")
 	public void profile() {}
@@ -24,4 +46,14 @@ public class UserController {
 	public String loginForm() {
 		return "login";
 	}
+	
+	@PostMapping("/authenticate")
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) throws Exception{
+		try {authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUserName(), request.getPassword()));}
+		catch(BadCredentialsException bad) {throw new Exception("Incorrect Username or Password", bad);}
+		final UserDetails userDetails = userService.loadUserByUsername(request.getUserName());
+		final String jwt = jwtUtil.generateToken(userDetails);
+		return ResponseEntity.ok(new AuthenticationResponse(jwt));
+	}
+	
 }
