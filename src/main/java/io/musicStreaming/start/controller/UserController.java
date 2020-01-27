@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
@@ -42,10 +41,10 @@ public class UserController {
 		return "register";
 	}
 	
-	@GetMapping("/login")
+	/*@GetMapping("/login")
 	public String loginForm() {
 		return "login";
-	}
+	}*/
 	
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) throws Exception{
