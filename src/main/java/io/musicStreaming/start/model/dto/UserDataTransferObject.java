@@ -14,7 +14,7 @@ public class UserDataTransferObject{
     private String firstName;
     @NotNull
     @NotEmpty
-    private String userName;
+    private String username;
     @NotNull
     @NotEmpty
     private String password;
@@ -33,10 +33,10 @@ public class UserDataTransferObject{
 		this.firstName = firstName;
 	}
 	public String getUserName() {
-		return userName;
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;

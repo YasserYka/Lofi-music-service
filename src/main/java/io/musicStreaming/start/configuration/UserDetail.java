@@ -16,7 +16,7 @@ import io.musicStreaming.start.model.User;
 
 public class UserDetail implements UserDetails{
 
-	private String userName;
+	private String username;
 	private String name;
 	private String plan;
 	private String imageUrl;
@@ -30,7 +30,7 @@ public class UserDetail implements UserDetails{
 	public UserDetail() {}
 	
 	public UserDetail(User user) {
-		this.userName = user.getUserName();
+		this.username = user.getUsername();
 		this.name = user.getName();
 		this.plan = user.getPlan();
 		this.imageUrl = user.getImageUrl();
@@ -54,7 +54,7 @@ public class UserDetail implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 
 	@Override

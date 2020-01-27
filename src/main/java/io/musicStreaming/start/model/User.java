@@ -11,7 +11,7 @@ public class User {
 
 	@Id
 	@Column(nullable = false, name="Username")
-	private String userName;
+	private String username;
 	@Column(nullable = true, name="Name")
 	private String name;
 	@Column(nullable = true, name="Plan")
@@ -34,11 +34,11 @@ public class User {
 	
 	public User() {}
 	
-	public User(int id, String name, String userName, String plan, String imageUrl, String email, String password,
+	public User(int id, String name, String username, String plan, String imageUrl, String email, String password,
 			String phoneNumber, String signupDate, String sessionToken) {
 		super();
 		this.name = name;
-		this.userName = userName;
+		this.username = username;
 		this.plan = plan;
 		this.imageUrl = imageUrl;
 		this.email = email;
@@ -52,11 +52,11 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPlan() {
 		return plan;

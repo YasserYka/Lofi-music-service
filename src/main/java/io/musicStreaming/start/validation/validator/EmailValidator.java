@@ -18,7 +18,7 @@ public class EmailValidator implements ConstraintValidator<ValidEmail, String> {
     public void initialize(final ValidEmail annotation){}
 
     @Override
-    public boolean isValid(final String userName, final ConstraintValidatorContext context){return (validateEmail(userName));}
+    public boolean isValid(final String username, final ConstraintValidatorContext context){return (validateEmail(username));}
 
     private boolean validateEmail(final String email){
         pattern = Pattern.compile(emailPattern);
