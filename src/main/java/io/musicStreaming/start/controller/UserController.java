@@ -48,9 +48,9 @@ public class UserController {
 	
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) throws Exception{
-		try {authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUserName(), request.getPassword()));}
+		try {authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));}
 		catch(BadCredentialsException bad) {throw new Exception("Incorrect Username or Password", bad);}
-		final UserDetails userDetails = userService.loadUserByUsername(request.getUserName());
+		final UserDetails userDetails = userService.loadUserByUsername(request.getUsername());
 		final String jwt = jwtUtil.generateToken(userDetails);
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
