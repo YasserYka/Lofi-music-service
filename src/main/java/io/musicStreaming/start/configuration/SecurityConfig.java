@@ -4,34 +4,32 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import io.musicStreaming.start.filter.JwtFilter;
+import io.musicStreaming.start.service.UserService;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-	
+		
 	@Autowired
-	private DataSource dataSource;
-	
-	@Autowired
-	private UserDetailsService userDetailsService;
+	private UserService userService;
 	
 	@Autowired
 	private JwtFilter jwtFilter;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder authentication) throws Exception {
-		authentication.userDetailsService(userDetailsService);
+		authentication.userDetailsService(userService);
 	}
 
 	@Override
@@ -40,10 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/admin").hasRole(Role.admin)
 			.antMatchers("/user").hasAnyRole(Role.admin, Role.user)
 			.antMatchers("/").permitAll()
-			.antMatchers("/error").permitAll()
-			.and().formLogin();*/
+			.antMatchers("/error").permitAll();*/
 		http.csrf().disable()
-		.authorizeRequests().antMatchers("/authenticate").permitAll()
+		.authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll().antMatchers("/authenticate").permitAll()
 		.anyRequest().authenticated().and()
 		.exceptionHandling().and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -3,19 +3,21 @@ package io.musicStreaming.start.utility;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.musicStreaming.start.configuration.UserDetail;
 
 import java.util.function.Function;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class JWT {
 
-	private String SECRET_KEY = "secret";
+	@Value("SECRET.KEY")
+	private String SECRET_KEY;
 	
 	public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -37,9 +39,9 @@ public class JWT {
         return extractExpiration(token).before(new Date());
     }
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(UserDetail userDetail) {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userDetails.getUsername());
+        return createToken(claims, userDetail.getUsername());
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
@@ -49,8 +51,8 @@ public class JWT {
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
     }
 
-    public Boolean validateToken(String token, UserDetails userDetails) {
+    public Boolean validateToken(String token, UserDetail userDetail) {
         final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        return (username.equals(userDetail.getUsername()) && !isTokenExpired(token));
     }
 }

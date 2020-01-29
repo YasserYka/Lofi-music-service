@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import io.musicStreaming.start.configuration.UserDetail;
 import io.musicStreaming.start.service.UserService;
 import io.musicStreaming.start.utility.JWT;
 
@@ -41,7 +41,7 @@ public class JwtFilter extends OncePerRequestFilter{
 		}
 		
 		if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-			UserDetails user = userService.loadUserByUsername(username);
+			UserDetail user = userService.loadUserByUsername(username);
 			if(jwtUtil.validateToken(jwt, user)) {
 				UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 				token.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

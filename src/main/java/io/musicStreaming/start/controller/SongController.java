@@ -1,11 +1,13 @@
 package io.musicStreaming.start.controller;
 
+import io.musicStreaming.start.configuration.UserDetail;
 import io.musicStreaming.start.model.Song;
 import io.musicStreaming.start.service.FileService;
 import io.musicStreaming.start.service.SongService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +28,9 @@ public class SongController {
 
 
 	@GetMapping("/")
-	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
+	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size, @AuthenticationPrincipal UserDetail user) {
 		Page<Song> songs = songService.songsList(size, page);
-		
+		System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiii" + user.getUsername());
 		model.addAttribute("songs", songs.getContent());		
 		model.addAttribute("totalPages", songs.getTotalPages() - 1);
 		model.addAttribute("size", songs.getSize());

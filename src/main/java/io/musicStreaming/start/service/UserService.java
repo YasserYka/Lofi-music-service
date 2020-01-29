@@ -3,7 +3,6 @@ package io.musicStreaming.start.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,7 @@ public class UserService implements UserDetailsService{
 	UserRepository repository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetail loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<User> user =  repository.findById(username);
 		user.orElseThrow(()->new UsernameNotFoundException("Coulding find " + username));
 		return user.map(UserDetail::new).get();
