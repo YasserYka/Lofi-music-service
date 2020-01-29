@@ -40,10 +40,10 @@ public class UserController {
 		return "register";
 	}
 	
-	/*@GetMapping("/login")
+	@GetMapping("/login")
 	public String loginForm() {
 		return "login";
-	}*/
+	}
 	
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) throws Exception{
@@ -53,5 +53,4 @@ public class UserController {
 		final String jwt = jwtUtil.generateToken(userDetail);
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
-	
 }
