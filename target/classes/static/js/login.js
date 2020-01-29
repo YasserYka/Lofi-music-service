@@ -20,6 +20,7 @@ function handleLogin(){
 
         response.json().then(data => {
             console.log("RECEIVED: ", data);
+            localStorage.setItem('token', response.jwt);
         })
         .catch(error => {
             console.log("SOMETHING WENT WRONG: ", error);

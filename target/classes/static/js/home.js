@@ -35,8 +35,6 @@ function fetchAudio(url){
   fetch(url)
       .then(data => data.arrayBuffer())
       .then(buffer => audioContext.decodeAudioData(buffer))
-      .then(decodeAudio => {
-          audio = decodeAudio;
-      }).then(() => {play(url);});
+      .then(decodeAudio => {audio = decodeAudio;})
+      .then(() => {play(url);})
 }
-

@@ -30,7 +30,6 @@ public class SongController {
 	@GetMapping("/")
 	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size, @AuthenticationPrincipal UserDetail user) {
 		Page<Song> songs = songService.songsList(size, page);
-		System.out.println("hiiiiiiiiiiiiiiiiiiiiiiiiii" + user.getUsername());
 		model.addAttribute("songs", songs.getContent());		
 		model.addAttribute("totalPages", songs.getTotalPages() - 1);
 		model.addAttribute("size", songs.getSize());
