@@ -4,39 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/register.css">
     <title>You won't regret it</title>
 </head>
 <body>
-    <form action="/" th:object="${user}" method="post" enctype="utf8">
-        <div>
-            <label th:text="#{label.user.name}">Name</label>
-            <input th:field="*{name}"/>
+    <div id="container">
+        <form action="@{/user}" th:object="${user}" method="post" enctype="utf8">
+            <input type="text" th:field="*{firstName}" placeholder="First Name"/>
             <p th:each="error: ${#fields.errors('firstName')}" th:text="${error}">Validation Error</p>
-        </div>
-        <div>
-            <label th:text="#{label.user.userName">Username</label>
-            <input th:field="*{Username}"/>
+
+            <input type="text" th:field="*{username}" placeholder="Username"/>
             <p th:each="error: ${#fields.errors('username')}" th:text="${error}">Validation Error</p>
-        </div>
-        <div>
-            <label th:text="#{label.user.email">Email</label>
-            <input type= "email" th:field="*{Email}"/>
+
+            <input type= "email" th:field="*{email}" placeholder="Emil"/>
             <p th:each="error: ${#fields.errors('email')}" th:text="${error}">Validation Error</p>
-        </div>
-        <div>
-            <label th:text="#{label.user.password">Password</label>
-            <input type="password" th:field="*{Password}"/>
+
+            <input type="password" th:field="*{password}" placeholder="Password"/>
             <p th:each="error: ${#fields.errors('password')}" th:text="${error}">Validation Error</p>
-        </div>
-        <div>
-            <label th:text="#{label.user.matchingPassword">Rewrite Password</label>
-            <input th:field="*{matchingPassword}"/>
+
+            <input type="password" th:field="*{matchingPassword}" placeholder="Rewite Password"/>
             <p th:each="error: ${#fields.errors('password')}" th:text="${error}">Validation Error</p>
-        </div>
-        <div>
-            <button type="submit" th:text="#{label.form.submit}">submit</button>
-        </div>
-    </form>
-    <a th:href="@{/login.html}" th:text="#{label.form.login}">Already have an account?</a>
+
+            <input id="submit" type="submit" value="Submit">
+        </form>
+
+        <a th:href="@{/login}">Already have an account?</a>
+    </div>
 </body>
 </html>

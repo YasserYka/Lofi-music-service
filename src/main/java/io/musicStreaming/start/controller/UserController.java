@@ -36,7 +36,7 @@ public class UserController {
 	
 	@GetMapping("/register")
 	public String registrationForm(WebRequest request, Model model) {
-		model.addAttribute("userDto", new UserDataTransferObject());
+		model.addAttribute("user", new UserDataTransferObject());
 		return "register";
 	}
 	
