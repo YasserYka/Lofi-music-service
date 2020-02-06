@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="container">
-        <form action="/addUser" th:object="${user}" method="post" enctype="utf8">
+        <form action="/users" th:object="${user}" method="post">
             <input type="text" th:field="*{firstName}" placeholder="First Name"/>
             <p th:each="error: ${#fields.errors('firstName')}" th:text="${error}">Validation Error</p>
 

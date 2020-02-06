@@ -13,7 +13,6 @@ io/musicStreaming/start/model/User.class
 io/musicStreaming/start/configuration/UserDetail.class
 io/musicStreaming/start/validation/valid/ValidEmail.class
 io/musicStreaming/start/exception/SongNotFoundException.class
-io/musicStreaming/start/controller/LoginController.class
 io/musicStreaming/start/model/Song.class
 io/musicStreaming/start/model/dto/UserDataTransferObject.class
 io/musicStreaming/start/validation/valid/PasswordMatches.class
@@ -22,5 +21,4 @@ io/musicStreaming/start/service/SongService.class
 io/musicStreaming/start/utility/JWT.class
 io/musicStreaming/start/filter/JwtFilter.class
 io/musicStreaming/start/repository/SongsRepository.class
-io/musicStreaming/start/controller/HomeController.class
 io/musicStreaming/start/controller/SongController.class

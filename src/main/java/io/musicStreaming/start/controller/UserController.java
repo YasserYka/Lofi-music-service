@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
@@ -43,6 +44,12 @@ public class UserController {
 	@GetMapping("/login")
 	public String loginForm() {
 		return "login";
+	}
+	
+	@PostMapping("/users")
+	@ResponseBody
+	public void addUser(UserDataTransferObject user) {
+		System.out.println(user.getUsername() + " " + user.getEmail());
 	}
 	
 	@PostMapping("/authenticate")
