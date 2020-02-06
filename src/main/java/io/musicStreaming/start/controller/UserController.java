@@ -50,6 +50,7 @@ public class UserController {
 	@ResponseBody
 	public void addUser(UserDataTransferObject user) {
 		System.out.println(user.getUsername() + " " + user.getEmail());
+		user.add
 	}
 	
 	@PostMapping("/authenticate")
