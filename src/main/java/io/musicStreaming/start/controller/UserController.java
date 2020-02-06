@@ -4,6 +4,7 @@ import io.musicStreaming.start.configuration.UserDetail;
 import io.musicStreaming.start.model.dto.AuthenticationRequest;
 import io.musicStreaming.start.model.dto.AuthenticationResponse;
 import io.musicStreaming.start.model.dto.UserDataTransferObject;
+import io.musicStreaming.start.model.dto.contactDataTransferObject;
 import io.musicStreaming.start.service.UserService;
 import io.musicStreaming.start.utility.JWT;
 
@@ -36,7 +37,7 @@ public class UserController {
 	public void profile() {}
 	
 	@GetMapping("/register")
-	public String registrationForm(WebRequest request, Model model) {
+	public String registrationForm(Model model) {
 		model.addAttribute("user", new UserDataTransferObject());
 		return "register";
 	}
@@ -62,5 +63,13 @@ public class UserController {
 	}
 
 	@GetMapping("/contact")
-	public String contact(){return "contact";}
+	public String contact(Model model){
+		model.addAttribute("contact", new contactDataTransferObject());
+		return "contact";
+	}
+	
+	@PostMapping("/contact")
+	@ResponseBody
+	public void handleContact(contactDataTransferObject contact){
+	}
 }

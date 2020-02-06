@@ -8,14 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Contact Form</h2>
     <div id="container">
-        <form action="/email" method="post">
-            <input type="text" id="fullName" placeholder="Full Name" required /> 
+        <h2 id="header">Contact Form</h2>
+        <form action="/contact" th:object="${contact}" method="post">
+            <input type="text" th:field="*{sender}" id="fullName" placeholder="Full Name" required /> 
 
-            <input type="text" id="subject" placeholder="subject" required />
+            <input type="text" th:field="*{subject}" id="subject" placeholder="subject" required />
 
-            <textarea type="text" id="message" placeholder="message"></textarea>
+            <textarea type="text" th:field="*{message}" id="message" placeholder="message"></textarea>
 
             <input type="submit" id="submit" value="Submit">
         </form>
