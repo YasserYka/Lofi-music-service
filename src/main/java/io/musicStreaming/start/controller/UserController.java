@@ -49,8 +49,7 @@ public class UserController {
 	@PostMapping("/users")
 	@ResponseBody
 	public void addUser(UserDataTransferObject user) {
-		System.out.println(user.getUsername() + " " + user.getEmail());
-		user.add
+		userService.addUser(user);
 	}
 	
 	@PostMapping("/authenticate")
@@ -61,4 +60,7 @@ public class UserController {
 		final String jwt = jwtUtil.generateToken(userDetail);
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
+
+	@GetMapping("/contact")
+	public String contact(){return "contact";}
 }
