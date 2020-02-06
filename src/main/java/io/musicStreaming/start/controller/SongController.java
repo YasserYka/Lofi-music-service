@@ -22,21 +22,6 @@ public class SongController {
 
 	@Autowired
 	private SongService songService;
-	
-	@Autowired
-	FileService fileService;
-
-
-	@GetMapping("/")
-	public String getSongs(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size, @AuthenticationPrincipal UserDetail user) {
-		Page<Song> songs = songService.songsList(size, page);
-		model.addAttribute("songs", songs.getContent());		
-		model.addAttribute("totalPages", songs.getTotalPages() - 1);
-		model.addAttribute("size", songs.getSize());
-		model.addAttribute("number", songs.getNumber());
-		
-		return "home";
-	}
 
 
 	@GetMapping("/song/{id}")
@@ -44,29 +29,4 @@ public class SongController {
 		model.addAttribute("song", songService.findById(id));
 		return "play";
 	}
-	
-	@GetMapping("/upload")
-	public String upload(){
-		return "upload";
-	}
-
-	@PostMapping("/upload")
-	public String handleUpload(@RequestParam("audio") MultipartFile audio, @RequestParam("image") MultipartFile image, RedirectAttributes redirect, @RequestParam String title, @RequestParam String artistName) {
-		if(audio.isEmpty() || image.isEmpty())
-			redirect.addFlashAttribute("message", "Please make sure to upload both audio and image");
-		else
-			redirect.addFlashAttribute("message", "Thank you for uploading");
-		
-		songService.saveSong(title, artistName, image, audio);
-		
-		fileService.uploadFileOfKind(audio, "audio");
-		fileService.uploadFileOfKind(image, "image");
-		
-		return "redirect:/uploadStatus";
-	}
-
-	
-	@GetMapping("/uploadStatus")
-	public String uploadStatus() {return "uploadStatus";}
-	
 }

@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserController {
@@ -36,17 +37,6 @@ public class UserController {
 	@GetMapping("/profile")
 	public void profile() {}
 	
-	@GetMapping("/register")
-	public String registrationForm(Model model) {
-		model.addAttribute("user", new UserDataTransferObject());
-		return "register";
-	}
-	
-	@GetMapping("/login")
-	public String loginForm() {
-		return "login";
-	}
-	
 	@PostMapping("/users")
 	@ResponseBody
 	public void addUser(UserDataTransferObject user) {
@@ -60,16 +50,5 @@ public class UserController {
 		final UserDetail userDetail = userService.loadUserByUsername(request.getUsername());
 		final String jwt = jwtUtil.generateToken(userDetail);
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
-	}
-
-	@GetMapping("/contact")
-	public String contact(Model model){
-		model.addAttribute("contact", new contactDataTransferObject());
-		return "contact";
-	}
-	
-	@PostMapping("/contact")
-	@ResponseBody
-	public void handleContact(contactDataTransferObject contact){
 	}
 }

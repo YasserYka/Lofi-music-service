@@ -11,6 +11,7 @@
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/repository/SongsRepository.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/model/dto/AuthenticationRequest.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/service/UserService.java
+/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/controller/HomeController.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/validation/valid/ValidEmail.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/validation/validator/PasswordMatchesValidator.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/utility/JWT.java
