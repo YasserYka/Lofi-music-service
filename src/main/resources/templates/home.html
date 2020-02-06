@@ -6,7 +6,6 @@
     <title>Make da music laoder</title>
   </head>
   <body>
-
     <div class="navigation-container">
       <a th:href="@{/login}">Login</a>
       <a th:href="@{/register}">Register</a>
@@ -14,6 +13,8 @@
       <a th:href="@{/contact}">Contact</a>
       <a th:href="@{/profile}">Profile</a>
     </div>
+
+    <h5 th:if="${message}" th:text="${message}"></h5>
 
       <div class="music-container" th:each="song: ${songs}">
           <img class="image" th:src="${song.imageUrl}" alt="" th:data-url="${song.audioUrl}" />
@@ -27,7 +28,6 @@
         </div>
       </div>
 
-      <div th:text="${message}"></div>
 
     <script type="text/javascript" src="/js/home.js"></script>
   </body>

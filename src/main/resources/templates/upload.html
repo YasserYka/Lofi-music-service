@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/upload.css">
     <title>Document</title>
 </head>
 <body>
-    <form method="post" modelAttribute="Song" enctype="multipart/form-data">
-        <label for="title">Title</label>
-            <input name="title" />
-        <label for="artistName">Artist Name</label>
-            <input name="artistName" />
+    <form id="container" method="post" modelAttribute="Song" enctype="multipart/form-data">
+            <input type="text" name="title" placeholder="Title" />
+            <input type="text" name="artistName" placeholder="Artist Name" />
         <label for="audio">Upload Audio</label>
             <input type="file" name="audio" />
         <label for="image">Upload Image</label>
             <input type="file" name="image"/>
-        <input type="submit" value="Submit" />
+        <input id="submit" type="submit" value="Submit" />
     </form>
 </body>
 </html>
