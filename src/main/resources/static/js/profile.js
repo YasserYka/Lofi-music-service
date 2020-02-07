@@ -1,6 +1,7 @@
 const baseUrl = "http://localhost:8080";
 
 window.onload = getInformation;
+document.getElementById("logout").addEventListener("click", deleteToken);
 
 function getInformation(){
     const token = localStorage.getItem('token');
@@ -19,6 +20,9 @@ function getInformation(){
             constructProfile(data)
         })
     }
+    else{
+        window.location.replace("http://localhost:8080/login");
+    }
 }
 
 function constructProfile(data){
@@ -31,4 +35,12 @@ function constructProfile(data){
     image.id = "image";
     image.src = data.imageUrl;
     imageContainer.appendChild(image);
+}
+
+function deleteToken(){
+    const token = localStorage.getItem('token');
+    if(token){
+        localStorage.removeItem("token")
+        window.location.replace("http://localhost:8080/home");
+    }
 }

@@ -28,7 +28,7 @@ public class User {
 	private String signupDate;
 	@Column(nullable = false, name="Enabled")
 	private boolean enabled;
-	@Column(nullable = false, name="Roles")
+	@Column(nullable = true, name="Roles")
 	private String Roles;
 	
 	

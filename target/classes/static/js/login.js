@@ -14,16 +14,27 @@ function handleLogin(){
         credentials: 'same-origin',
         body: JSON.stringify({"username":username ,"password" : password})
     }).then(response => {
-        if(response.status !== 200){
-            console.log("WORNG USERNAME OR PASSWORD");
-        }
 
-        response.json().then(data => {
-            localStorage.setItem('token', data.jwt);
-            window.location.replace("http://localhost:8080/home");
-        })
-        .catch(error => {
-            console.log("SOMETHING WENT WRONG: ", error);
-        })
+        if(response.status !== 200){
+            throw new Error(response.status);
+        }
+        else
+            return response;
+
+    }).then(response => {
+
+            response.json().then(data => {
+                localStorage.setItem('token', data.jwt);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }).catch(error => {
+        showErrorMessage(error);
     })
 };
+function showErrorMessage(error){
+    alert("Something went wrong please make sure to enter the right username and password");
+    console.log(error);
+}

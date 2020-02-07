@@ -8,7 +8,7 @@ CREATE TABLE users(
 	phone_number VARCHAR(128),
 	signup_date VARCHAR(128),
     enabled boolean not null,
-    roles VARCHAR(128) not null
+    roles VARCHAR(128)
 );
 
 CREATE TABLE song (
