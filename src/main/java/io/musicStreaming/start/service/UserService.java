@@ -33,14 +33,12 @@ public class UserService implements UserDetailsService{
 		return user.map(UserDetail::new).get();
 	}
 
-	public UserDetail loadUserByToken(String token){
-		Optional<User> user =  repository.findById(jwtUtil.extractUsername(token));
-		user.orElseThrow(()->new UsernameNotFoundException("Coulding find User"));
-		return user.map(UserDetail::new).get();
+	public Optional<User> loadUserByToken(String token){
+		System.out.println("Trace: " + repository.findById(jwtUtil.extractUsername(token)).get().toString());
+		return repository.findById(jwtUtil.extractUsername(token));
 	}
 
 	public void addUser(UserDataTransferObject userDto) {
-		
 		User user = new User();
 		
 		user.setEmail(userDto.getEmail());

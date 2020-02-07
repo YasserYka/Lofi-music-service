@@ -19,8 +19,8 @@ function handleLogin(){
         }
 
         response.json().then(data => {
-            console.log("RECEIVED: ", data);
             localStorage.setItem('token', data.jwt);
+            window.location.replace("http://localhost:8080/home");
         })
         .catch(error => {
             console.log("SOMETHING WENT WRONG: ", error);

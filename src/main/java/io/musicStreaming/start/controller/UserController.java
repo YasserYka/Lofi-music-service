@@ -3,6 +3,7 @@ package io.musicStreaming.start.controller;
 import io.musicStreaming.start.configuration.UserDetail;
 import io.musicStreaming.start.model.dto.AuthenticationRequest;
 import io.musicStreaming.start.model.dto.AuthenticationResponse;
+import io.musicStreaming.start.model.dto.ProfileDataTransferObject;
 import io.musicStreaming.start.model.dto.UserDataTransferObject;
 import io.musicStreaming.start.model.dto.contactDataTransferObject;
 import io.musicStreaming.start.service.UserService;
@@ -44,7 +45,7 @@ public class UserController {
 		return "profile";
 	}
 	
-	@PostMapping("/users")
+	@PostMapping("/user")
 	@ResponseBody
 	public void addUser(UserDataTransferObject user) {
 		userService.addUser(user);
@@ -52,8 +53,8 @@ public class UserController {
 
 	@GetMapping("/user")
 	@ResponseBody
-	public UserDetail getUser(@RequestHeader (name="Authorization") String token){
-		return userService.loadUserByToken(token);
+	public ProfileDataTransferObject getUser(@RequestHeader (name="Authorization") String token){
+		return new ProfileDataTransferObject().map(userService.loadUserByToken(token).get());
 	}
 	
 	@PostMapping("/authenticate")

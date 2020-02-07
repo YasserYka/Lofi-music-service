@@ -22,5 +22,6 @@
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/configuration/UserDetail.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/Application.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/validation/validator/EmailValidator.java
+/home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/model/dto/ProfileDataTransferObject.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/controller/SongController.java
 /home/yasser/Documents/Java/music/src/main/java/io/musicStreaming/start/model/dto/UserDataTransferObject.java
