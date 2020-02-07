@@ -5,7 +5,6 @@ document.getElementById("logout").addEventListener("click", deleteToken);
 
 function getInformation(){
     const token = localStorage.getItem('token');
-    if(token){
         fetch(baseUrl+"/user", {
             method: "GET",
             headers: {Authorization: token}
@@ -19,10 +18,6 @@ function getInformation(){
             console.log(data);*/
             constructProfile(data)
         })
-    }
-    else{
-        window.location.replace("http://localhost:8080/login");
-    }
 }
 
 function constructProfile(data){

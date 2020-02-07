@@ -25,6 +25,7 @@ function handleLogin(){
 
             response.json().then(data => {
                 localStorage.setItem('token', data.jwt);
+                window.location.replace("http://localhost:8080/home");
             })
             .catch(error => {
                 console.log(error);

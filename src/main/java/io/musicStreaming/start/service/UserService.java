@@ -26,7 +26,6 @@ public class UserService implements UserDetailsService{
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@Override
 	public UserDetail loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<User> user =  repository.findById(username);
 		user.orElseThrow(()->new UsernameNotFoundException("Coulding find User"));
@@ -34,7 +33,6 @@ public class UserService implements UserDetailsService{
 	}
 
 	public Optional<User> loadUserByToken(String token){
-		System.out.println("Trace: " + repository.findById(jwtUtil.extractUsername(token)).get().toString());
 		return repository.findById(jwtUtil.extractUsername(token));
 	}
 
@@ -49,6 +47,21 @@ public class UserService implements UserDetailsService{
 		
 		user.setUsername(userDto.getUsername());
 		
+		user.setRoles("ROLE_USER");
+		
+		user.setEnabled(true);
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+		System.out.println(userDto.getUsername());
+		System.out.println(passwordEncoder.encode(userDto.getPassword()));
+		System.out.println(repository.count());
 		repository.save(user);
+	}
+	
+	public boolean isUsernameExits(String username) {
+		return repository.existsById(username);
+	}
+	
+	public boolean isEmailExits(String email) {
+		return repository.existsByEmail(email);
 	}
 }

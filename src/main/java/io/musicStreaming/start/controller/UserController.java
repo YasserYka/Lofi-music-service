@@ -46,9 +46,22 @@ public class UserController {
 	}
 	
 	@PostMapping("/user")
-	@ResponseBody
-	public void addUser(UserDataTransferObject user) {
+	public String addUser(UserDataTransferObject user) {
+		/*if(userService.isUsernameExits(user.getUsername()))
+			return ResponseEntity.badRequest().body("The Username is already taken sir");
+		else if(userService.isEmailExits(user.getEmail()))
+			return ResponseEntity.badRequest().body("The Email is already taken sir");*/
 		userService.addUser(user);
+		afterRegistering(user.getUsername(), user.getPassword());
+		return "redirect:/home";
+	}
+	
+	private void afterRegistering(String username, String password) {
+		UserDetail userDetail = userService.loadUserByUsername(username);
+		UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetail, password, userDetail.getAuthorities());
+        authenticationManager.authenticate(authToken);
+        if(authToken.isAuthenticated())
+        	SecurityContextHolder.getContext().setAuthentication(authToken);
 	}
 
 	@GetMapping("/user")
@@ -58,9 +71,9 @@ public class UserController {
 	}
 	
 	@PostMapping("/authenticate")
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) throws Exception{
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request){
 		try {authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));}
-		catch(BadCredentialsException bad) {throw new Exception("Incorrect Username or Password", bad);}
+		catch(BadCredentialsException bad) {try {throw new Exception("Incorrect Username or Password", bad);} catch (Exception e) {}}
 		final UserDetail userDetail = userService.loadUserByUsername(request.getUsername());
 		final String jwt = jwtUtil.generateToken(userDetail);
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));

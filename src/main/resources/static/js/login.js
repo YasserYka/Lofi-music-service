@@ -25,14 +25,11 @@ function handleLogin(){
 
             response.json().then(data => {
                 localStorage.setItem('token', data.jwt);
+                window.location.replace("http://localhost:8080/home");
             })
             .catch(error => {
                 console.log(error);
             })
-
-            if(response == 200)
-                window.location.replace("http://localhost:8080/home");
-
 
     }).catch(error => {
         showErrorMessage(error);
