@@ -5,7 +5,7 @@ body{
     background-color: #1b262c;
 }
 #container{
-    color: #f1f1f1;
+    color: #cccccc;
     width: 500px;
     background-color: rgb(34, 56, 73);
     position: fixed;
@@ -15,6 +15,7 @@ body{
     font-family: arial;
     transform: translate(-50%, -50%);
     text-align: center;
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.5), 0 12px 24px 0 rgba(0, 0, 0, 0.5);
 }
 #info-container{
     display: table;
@@ -33,7 +34,7 @@ button {
     outline: 0;
     display: inline-block;
     padding: 8px;
-    color: white;
+    color: #cccccc;
     background-color: black;
     text-align: center;
     cursor: pointer;

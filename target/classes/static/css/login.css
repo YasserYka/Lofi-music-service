@@ -9,6 +9,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.5), 0 12px 24px 0 rgba(0, 0, 0, 0.5);
 }
 #submit {
     padding: 16px 20px;
@@ -27,7 +28,7 @@ input[type=text], input[type=password] {
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background: #f1f1f1;
+    background: #cccccc;
 }
 * {
     box-sizing: border-box;

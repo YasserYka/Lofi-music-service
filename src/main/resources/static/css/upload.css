@@ -12,13 +12,14 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.5), 0 12px 24px 0 rgba(0, 0, 0, 0.5);
 }
 input[type=text]{
     width: 100%;
     margin: 8px 0;
     display: block;
     border: none;
-    background: #f1f1f1;
+    background: #cccccc;
     padding: 16px;
 }
 input {
@@ -26,7 +27,7 @@ input {
     padding: 5px;
 }
 label{
-    color: #f1f1f1;
+    color: #cccccc;
 }
 #submit {
     padding: 16px 20px;

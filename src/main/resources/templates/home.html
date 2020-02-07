@@ -18,8 +18,10 @@
 
       <div class="music-container" th:each="song: ${songs}">
           <img class="image" th:src="${song.imageUrl}" alt="" th:data-url="${song.audioUrl}" />
-          <h6 class="info" th:text="${song.title}"></h6><br>
-          <h6 class="info" th:text="${song.artistName}"></h6>
+          <div class="info">
+            <p class="title" th:text="${song.title}"></p>
+            <p class="artist" th:text="${song.artistName}"></p>
+          </div>
       </div>
       
       <div class="center">

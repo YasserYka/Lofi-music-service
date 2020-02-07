@@ -12,9 +12,11 @@ body{
     flex-wrap: wrap;
     margin: 1em;
     border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .music-container .info{
-    color: #f2f2f2;
+    color: #cccccc;
+    float:left; 
 }
 .navigation-container{
     overflow: hidden;
@@ -25,7 +27,7 @@ body{
 }
 .navigation-container a{
   float: left;
-  color: #f2f2f2;
+  color: #cccccc;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -42,10 +44,10 @@ body{
 }
 .navigation-container a:hover{
     background-color: rgb(34, 56, 73);
-    color: #f2f2f2;
+    color: #cccccc;
 }
 .pagination a {
-    color: #f2f2f2;
+    color: #cccccc;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
@@ -55,7 +57,7 @@ body{
 }
 .pagination a.active {
   background-color: rgb(34, 56, 73);
-  color: #f2f2f2;
+  color: #cccccc;
 }
 .center {
     text-align: center;
@@ -65,7 +67,10 @@ body{
     position: fixed;
     bottom: 5px;
 }
-h5{
+.title {
     padding: 10px;
-    color: #f2f2f2;
+    font-size: 30px;
+}
+.artist{
+    padding: 20px;
 }
