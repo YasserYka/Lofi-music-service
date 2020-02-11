@@ -53,7 +53,7 @@ public class UserController {
 			return ResponseEntity.badRequest().body("The Email is already taken sir");*/
 		userService.addUser(user);
 		afterRegistering(user.getUsername(), user.getPassword());
-		return "redirect:/home";
+		return "redirect:/login";
 	}
 	
 	private void afterRegistering(String username, String password) {

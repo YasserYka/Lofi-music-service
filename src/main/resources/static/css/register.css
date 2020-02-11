@@ -1,9 +1,14 @@
+:root{
+    --white: #cccccc;
+    --background: #1b262c;
+    --second: rgb(34, 56, 73);
+}
 body{
     background-color: #1b262c;
 }
 #container {
     padding: 16px;
-    background-color: rgb(34, 56, 73);
+    background-color: var(--second);
     width: 60%;
     position: fixed;
     top: 50%;
@@ -17,7 +22,7 @@ input[type=text], input[type=password], input[type=email] {
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background: #cccccc;
+    background: var(--white);
 }
 * {
     box-sizing: border-box;
@@ -38,7 +43,7 @@ a{
 }
 a:link, a:visited {
     background-color: #4e4e4e;
-    color: #cccccc;
+    color: var(--white);
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;

@@ -1,4 +1,5 @@
 const baseUrl = "http://localhost:8080";
+const defaultImage = "images/users/default.jpg"
 
 window.onload = getInformation;
 document.getElementById("logout").addEventListener("click", deleteToken);
@@ -28,7 +29,12 @@ function constructProfile(data){
 
     let image = document.createElement("img");
     image.id = "image";
-    image.src = data.imageUrl;
+
+    if(data.imageUrl)
+        image.src = data.imageUrl;
+    else
+        image.src = defaultImage;
+        
     imageContainer.appendChild(image);
 }
 

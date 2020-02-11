@@ -1,8 +1,12 @@
+:root{
+    --white: #cccccc;
+    --background: #1b262c;
+}
 * {
     box-sizing: border-box;
 }
 body{
-    background-color: #1b262c;
+    background-color: var(--background);
 }
 #container {
     border-radius: 5px;
@@ -31,8 +35,8 @@ input[type=text], #message {
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background: #cccccc;
+    background: var(--white);
 }
 #header{
-    color: #cccccc;
+    color: var(--white);
 }

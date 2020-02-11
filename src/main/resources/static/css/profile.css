@@ -1,3 +1,8 @@
+:root{
+    --white: #cccccc;
+    --background: #1b262c;
+    --second: rgb(34, 56, 73);
+}
 * {
     box-sizing: border-box;
 }
@@ -5,9 +10,9 @@ body{
     background-color: #1b262c;
 }
 #container{
-    color: #cccccc;
+    color: var(--white);
     width: 500px;
-    background-color: rgb(34, 56, 73);
+    background-color: var(--second);
     position: fixed;
     margin: auto;
     top: 50%;
@@ -34,7 +39,7 @@ button {
     outline: 0;
     display: inline-block;
     padding: 8px;
-    color: #cccccc;
+    color: var(--white);
     background-color: black;
     text-align: center;
     cursor: pointer;

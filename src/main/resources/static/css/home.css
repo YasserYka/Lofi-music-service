@@ -1,12 +1,17 @@
+:root{
+    --white: #cccccc;
+    --background: #1b262c;
+    --second: rgb(34, 56, 73);
+}
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: #1b262c;
+    background-color: var(--background);
 }
 .music-container{
     width: 95%;
     height: 12em;
-    background-color: rgb(34, 56, 73);
+    background-color: var(--second);
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
@@ -15,19 +20,19 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .music-container .info{
-    color: #cccccc;
+    color: var(--white);
     float:left; 
 }
 .navigation-container{
     overflow: hidden;
-    background-color: rgb(34, 56, 73);
+    background-color: var(--second);
     top: 0;
     width: 100%;
     position: sticky;
 }
 .navigation-container a{
   float: left;
-  color: #cccccc;
+  color: var(--white);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -43,11 +48,11 @@ body{
     color: coral;
 }
 .navigation-container a:hover{
-    background-color: rgb(34, 56, 73);
-    color: #cccccc;
+    background-color: var(--second);
+    color: var(--white);
 }
 .pagination a {
-    color: #cccccc;
+    color: var(--white);
     float: left;
     padding: 8px 16px;
     text-decoration: none;
@@ -56,8 +61,8 @@ body{
     display: inline-block;
 }
 .pagination a.active {
-  background-color: rgb(34, 56, 73);
-  color: #cccccc;
+  background-color: var(--second);
+  color: var(--white);
 }
 .center {
     text-align: center;
