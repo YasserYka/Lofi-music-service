@@ -26,7 +26,7 @@
       
       <div class="center">
         <div th:if="${totalPages > 0}" class="pagination" th:each="counter : ${#numbers.sequence(0, totalPages)}">
-            <a th:href="@{/songs(size=${size}, page=${counter})}" th:text=${counter+1} th:class="${counter == number}?active"></a>
+            <a th:href="@{/home(size=${size}, page=${counter})}" th:text=${counter+1} th:class="${counter == number}?active"></a>
         </div>
       </div>
 

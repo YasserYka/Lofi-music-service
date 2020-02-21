@@ -26,7 +26,9 @@ public class HomeController {
 	private FileService fileService;
 
 	@GetMapping("/home")
-	public String home(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
+	public String home(Model model, @RequestParam(defaultValue = "3") int size, @RequestParam(defaultValue = "0") int page) {
+		System.out.println("size " + size);
+		System.out.println("page------------------------------------------------------------------------------------------------------- " + page);
 		Page<Song> songs = songService.songsList(size, page);
 		model.addAttribute("songs", songs.getContent());		
 		model.addAttribute("totalPages", songs.getTotalPages() - 1);
