@@ -1,12 +1,17 @@
+:root{
+    --white: #cccccc;
+    --background: #1b262c;
+    --second: rgb(34, 56, 73);
+}
 * {
     box-sizing: border-box;
 }
 body{
-    background-color: #1b262c;
+    background-color: var(--background);
 }
 #container {
     padding: 16px;
-    background-color: rgb(34, 56, 73);
+    background-color: var(--second);
     width: 40%;
     position: fixed;
     top: 50%;
@@ -19,7 +24,7 @@ input[type=text]{
     margin: 8px 0;
     display: block;
     border: none;
-    background: #cccccc;
+    background: var(--white);
     padding: 16px;
 }
 input {
@@ -27,7 +32,7 @@ input {
     padding: 5px;
 }
 label{
-    color: #cccccc;
+    color: var(--white);
 }
 #submit {
     padding: 16px 20px;

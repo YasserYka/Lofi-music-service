@@ -1,9 +1,14 @@
+:root{
+    --white: #cccccc;
+    --background: #1b262c;
+    --second: rgb(34, 56, 73);
+}
 body{
-    background-color: #1b262c;
+    background-color: var(--background);
 }
 #loginContainer {
     padding: 16px;
-    background-color: rgb(34, 56, 73);
+    background-color: var(--second);
     width: 60%;
     position: fixed;
     top: 50%;
@@ -28,7 +33,7 @@ input[type=text], input[type=password] {
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
-    background: #cccccc;
+    background: var(--white);
 }
 * {
     box-sizing: border-box;
