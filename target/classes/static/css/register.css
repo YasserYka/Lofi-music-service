@@ -5,6 +5,7 @@
 }
 body{
     background-color: #1b262c;
+    f
 }
 #container {
     padding: 16px;
@@ -19,7 +20,7 @@ body{
 input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    margin: 5px 0 15px 0;
     display: inline-block;
     border: none;
     background: var(--white);
@@ -51,4 +52,14 @@ a:link, a:visited {
   }
 a:hover, a:active {
     background-color: #4e4e4e;
+}
+li{
+    color: var(--white);
+    list-style-type: none;
+}
+p{
+    color: var(--white);
+}
+.inline{
+    display: inline-block;
 }

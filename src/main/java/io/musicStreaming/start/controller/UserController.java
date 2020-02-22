@@ -18,6 +18,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,14 +45,14 @@ public class UserController {
 	}
 	
 	@PostMapping("/user")
-	public String addUser(@Valid UserDataTransferObject user, BindingResult bindingResult) {
+	public String addUser(Model model,@Valid @ModelAttribute("user") UserDataTransferObject user, BindingResult bindingResult) {
 		/*if(userService.isUsernameExits(user.getUsername()))
 			return ResponseEntity.badRequest().body("The Username is already taken sir");
 		else if(userService.isEmailExits(user.getEmail()))
 			return ResponseEntity.badRequest().body("The Email is already taken sir");*/
 		if(bindingResult.hasErrors()) {
-			System.out.println("???????????????????????????????????????????????????????????");
-			return "redirect:/register";
+			model.addAttribute("user", user);
+			return "register";
 		}
 		userService.addUser(user);
 		afterRegistering(user.getUsername(), user.getPassword());

@@ -9,21 +9,26 @@
 </head>
 <body>
     <div id="container">
-        <form action="/user" th:object="${user}" method="post">
+        <form th:action="@{/user}" th:object="${user}" method="post">
+
+
+
             <input type="text" th:field="*{firstName}" placeholder="First Name"/>
-            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name error</p>
 
             <input type="text" th:field="*{username}" placeholder="Username"/>
-            <p th:if="${#fields.hasErrors('username')}" th:errors="*{firstName}">Username error</p>
+            <ul th:if="${#fields.hasErrors('username')}">
+                <li th:each="err : ${#fields.errors('username')}" th:text="'Username ' + ${err}"></li>
+            </ul> 
 
             <input type= "email" th:field="*{email}" placeholder="Emil"/>
-            <p th:if="${#fields.hasErrors('email')}" th:errors="*{firstName}">Email error</p>
-
+            <ul th:if="${#fields.hasErrors('email')}">
+                <li th:each="err : ${#fields.errors('email')}" th:text="'Email ' + ${err}"></li>
+            </ul>
             <input type="password" th:field="*{password}" placeholder="Password"/>
-            <p th:if="${#fields.hasErrors('password')}" th:errors="*{firstName}">Password error</p>
-
+            <ul th:if="${#fields.hasErrors('password')}">
+                <li th:each="err : ${#fields.errors('password')}" th:text="'Password ' + ${err}"></li>
+            </ul>
             <input type="password" th:field="*{matchingPassword}" placeholder="Rewite Password"/>
-            <p th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}">Password doesn't matches error</p>
 
             <input id="submit" type="submit" value="Submit">
         </form>
