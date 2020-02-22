@@ -5,7 +5,6 @@
 }
 body{
     background-color: #1b262c;
-    f
 }
 #container {
     padding: 16px;
@@ -56,10 +55,4 @@ a:hover, a:active {
 li{
     color: var(--white);
     list-style-type: none;
-}
-p{
-    color: var(--white);
-}
-.inline{
-    display: inline-block;
 }

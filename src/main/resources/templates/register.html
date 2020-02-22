@@ -15,19 +15,21 @@
 
             <input type="text" th:field="*{firstName}" placeholder="First Name"/>
 
-            <input type="text" th:field="*{username}" placeholder="Username"/>
             <ul th:if="${#fields.hasErrors('username')}">
                 <li th:each="err : ${#fields.errors('username')}" th:text="'Username ' + ${err}"></li>
             </ul> 
+            <input type="text" th:field="*{username}" placeholder="Username"/>
 
-            <input type= "email" th:field="*{email}" placeholder="Emil"/>
             <ul th:if="${#fields.hasErrors('email')}">
                 <li th:each="err : ${#fields.errors('email')}" th:text="'Email ' + ${err}"></li>
             </ul>
-            <input type="password" th:field="*{password}" placeholder="Password"/>
+            <input type= "email" th:field="*{email}" placeholder="Emil"/>
+            
             <ul th:if="${#fields.hasErrors('password')}">
                 <li th:each="err : ${#fields.errors('password')}" th:text="'Password ' + ${err}"></li>
             </ul>
+            <input type="password" th:field="*{password}" placeholder="Password"/>
+
             <input type="password" th:field="*{matchingPassword}" placeholder="Rewite Password"/>
 
             <input id="submit" type="submit" value="Submit">
