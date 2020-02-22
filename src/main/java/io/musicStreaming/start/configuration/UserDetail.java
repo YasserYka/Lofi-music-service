@@ -14,13 +14,7 @@ import io.musicStreaming.start.model.User;
 public class UserDetail implements UserDetails{
 
 	private String username;
-	private String name;
-	private String plan;
-	private String imageUrl;
-	private String email;
 	private String password;
-	private String phoneNumber;
-	private String signupDate;
 	private boolean enabled;
 	private List<GrantedAuthority> authorities;
 	
@@ -28,13 +22,7 @@ public class UserDetail implements UserDetails{
 	
 	public UserDetail(User user) {
 		this.username = user.getUsername();
-		this.name = user.getName();
-		this.plan = user.getPlan();
-		this.imageUrl = user.getImageUrl();
-		this.email = user.getEmail();
 		this.password = user.getPassword();
-		this.phoneNumber = user.getPhoneNumber();
-		this.signupDate = user.getSignupDate();
 		this.enabled = user.isEnabled();
 		this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 	}

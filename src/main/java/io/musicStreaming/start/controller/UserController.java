@@ -8,6 +8,9 @@ import io.musicStreaming.start.model.dto.UserDataTransferObject;
 import io.musicStreaming.start.service.UserService;
 import io.musicStreaming.start.utility.JWT;
 
+import javax.naming.Binding;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,7 +18,9 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -39,11 +44,15 @@ public class UserController {
 	}
 	
 	@PostMapping("/user")
-	public String addUser(UserDataTransferObject user) {
+	public String addUser(@Valid UserDataTransferObject user, BindingResult bindingResult) {
 		/*if(userService.isUsernameExits(user.getUsername()))
 			return ResponseEntity.badRequest().body("The Username is already taken sir");
 		else if(userService.isEmailExits(user.getEmail()))
 			return ResponseEntity.badRequest().body("The Email is already taken sir");*/
+		if(bindingResult.hasErrors()) {
+			System.out.println("???????????????????????????????????????????????????????????");
+			return "redirect:/register";
+		}
 		userService.addUser(user);
 		afterRegistering(user.getUsername(), user.getPassword());
 		return "redirect:/login";

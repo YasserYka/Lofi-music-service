@@ -11,19 +11,19 @@
     <div id="container">
         <form action="/user" th:object="${user}" method="post">
             <input type="text" th:field="*{firstName}" placeholder="First Name"/>
-            <p th:each="error: ${#fields.errors('firstName')}" th:text="${error}">Validation Error</p>
+            <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name error</p>
 
             <input type="text" th:field="*{username}" placeholder="Username"/>
-            <p th:each="error: ${#fields.errors('username')}" th:text="${error}">Validation Error</p>
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{firstName}">Username error</p>
 
             <input type= "email" th:field="*{email}" placeholder="Emil"/>
-            <p th:each="error: ${#fields.errors('email')}" th:text="${error}">Validation Error</p>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{firstName}">Email error</p>
 
             <input type="password" th:field="*{password}" placeholder="Password"/>
-            <p th:each="error: ${#fields.errors('password')}" th:text="${error}">Validation Error</p>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{firstName}">Password error</p>
 
             <input type="password" th:field="*{matchingPassword}" placeholder="Rewite Password"/>
-            <p th:each="error: ${#fields.errors('password')}" th:text="${error}">Validation Error</p>
+            <p th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}">Password doesn't matches error</p>
 
             <input id="submit" type="submit" value="Submit">
         </form>

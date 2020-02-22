@@ -1,29 +1,30 @@
 package io.musicStreaming.start.model.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-import io.musicStreaming.start.validation.valid.ValidEmail;
-import io.musicStreaming.start.validation.valid.PasswordMatches;
-
-@PasswordMatches
 public class UserDataTransferObject{
 
     @NotNull
     @NotEmpty
     private String firstName;
     @NotNull
-    @NotEmpty
+	@NotEmpty
+	@Size(min=6, max=50)
     private String username;
     @NotNull
-    @NotEmpty
+	@NotEmpty
+	@Size(min=6, max=50)
     private String password;
     @NotNull
     @NotEmpty
     private String matchingPassword;
-	@ValidEmail
+	@Email
     @NotNull
-    @NotEmpty
+	@NotEmpty
+	@Size(min=5, max=50)
     private String email;
     
 	public String getFirstName() {
