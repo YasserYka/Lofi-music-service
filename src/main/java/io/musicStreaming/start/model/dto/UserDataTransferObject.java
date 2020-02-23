@@ -5,6 +5,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import io.musicStreaming.start.validators.ivalid.IMatch;
+
+@IMatch(first = "password", second="matchingPassword")
 public class UserDataTransferObject{
 
     @NotNull

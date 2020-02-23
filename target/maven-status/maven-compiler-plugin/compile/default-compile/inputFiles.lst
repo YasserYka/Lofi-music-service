@@ -5,10 +5,12 @@
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/model/dto/AuthenticationRequest.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/controller/UserController.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/model/dto/contactDataTransferObject.java
+/home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/validators/UserValidator.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/service/UserService.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/Application.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/service/SongService.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/model/dto/UserDataTransferObject.java
+/home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/validators/ivalid/IMatch.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/exception/SongNotFoundException.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/configuration/SecurityConfig.java
 /home/yasser/Documents/java/Lofi-music-service/src/main/java/io/musicStreaming/start/repository/UserRepository.java

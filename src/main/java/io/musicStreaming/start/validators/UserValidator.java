@@ -1,37 +1,44 @@
 package io.musicStreaming.start.validators;
 
-import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
-import io.musicStreaming.start.model.dto.UserDataTransferObject;
+import org.apache.commons.beanutils.BeanUtils;
+import io.musicStreaming.start.validators.ivalid.IMatch;
 
-public class UserValidator implements Validator{
+public class UserValidator implements ConstraintValidator<IMatch, Object> {
 
-	@Override
-	public boolean supports(Class<?> clazz) {
-		return clazz == UserDataTransferObject.class;
+	private String first;
+	private String second;
+	private String message;
+
+    @Override
+    public void initialize(final IMatch constraintAnnotation) {
+    	message = "Both Passwords must match";
+    	first = constraintAnnotation.first();
+    	second = constraintAnnotation.second();
 	}
 
 	@Override
-	public void validate(Object target, Errors errors) {
-		notEmptyValidation(errors);
+	public boolean isValid(final Object value, ConstraintValidatorContext context) {
+		boolean valid = true;
 
-		UserDataTransferObject user = castToUserDTO(target);
+		try {
+			Object firstObj = BeanUtils.getProperty(value, first);
+			Object secondObj = BeanUtils.getProperty(value, second);
+			 valid =  firstObj == null && secondObj == null || firstObj != null && firstObj.equals(secondObj);
+		}catch(Exception error) {}
+		
+        if (!valid){
+            context.buildConstraintViolationWithTemplate(message)
+                    .addPropertyNode(first)
+                    .addConstraintViolation()
+                    .disableDefaultConstraintViolation();
+        }
+		return valid;
 	}
 
-	private UserDataTransferObject castToUserDTO(Object target){
-		return (UserDataTransferObject) target; 
-	}
-
-	private void notEmptyValidation(Errors errors){
-		ValidationUtils.rejectIfEmpty(errors, "firstName", "user.firstName.empty");
-		ValidationUtils.rejectIfEmpty(errors, "username", "user.username.empty");
-		ValidationUtils.rejectIfEmpty(errors, "email", "user.email.empty");
-		ValidationUtils.rejectIfEmpty(errors, "password", "user.password.empty");
-		ValidationUtils.rejectIfEmpty(errors, "matchingPassword", "user.matchingPassword.empty");
-
-	}
 
 
+	
 }

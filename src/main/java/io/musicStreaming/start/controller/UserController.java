@@ -7,6 +7,7 @@ import io.musicStreaming.start.model.dto.ProfileDataTransferObject;
 import io.musicStreaming.start.model.dto.UserDataTransferObject;
 import io.musicStreaming.start.service.UserService;
 import io.musicStreaming.start.utility.JWT;
+import io.musicStreaming.start.validators.UserValidator;
 
 import javax.naming.Binding;
 import javax.validation.Valid;
@@ -46,10 +47,6 @@ public class UserController {
 	
 	@PostMapping("/user")
 	public String addUser(Model model,@Valid @ModelAttribute("user") UserDataTransferObject user, BindingResult bindingResult) {
-		/*if(userService.isUsernameExits(user.getUsername()))
-			return ResponseEntity.badRequest().body("The Username is already taken sir");
-		else if(userService.isEmailExits(user.getEmail()))
-			return ResponseEntity.badRequest().body("The Email is already taken sir");*/
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("user", user);
 			return "register";
