@@ -1,10 +1,7 @@
 package io.musicStreaming.start.configuration;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -50,16 +47,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();}
-	
-	//This code used for testing
-	/*
-    @Override
-    protected void configure(HttpSecurity security) throws Exception
-    {
-     security.httpBasic().disable();
-     security.cors().and().csrf().disable();
-     
-     security.headers().frameOptions().disable();
-    }
-    */
 }
