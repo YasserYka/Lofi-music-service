@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Song {
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column(nullable = false, name="Title")
 	private String title;
